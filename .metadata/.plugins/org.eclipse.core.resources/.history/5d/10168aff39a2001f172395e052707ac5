@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!-- 맵핑하는 파일 / 맵퍼파일 -->
+  <mapper namespace="org.doit.ik.mapper.scott.EmpMapper">
+  	<!-- mybaits-config.xml 에서 alias 로 설정할 수 있다. -->
+  	<select id="selectEmp" resultType="org.doit.ik.domain.EmpDTO">
+  		select *
+  		from emp
+  		where deptno in (10,20,30)
+  	</select>
+  </mapper>

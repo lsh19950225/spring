@@ -1,0 +1,34 @@
+console.log("Dept Module........");
+
+const deptService = (function(){
+	
+	// http://localhost/scott/dept/new 새로운 부서 추가
+	// data:JSON.stringify(dept) js 객체 -> JSON
+	function add(dept, callback, error){
+		console.log("> deptService.add()");
+		
+		$.ajax({
+			type:'post',
+			url:'/scott/dept/new',
+			data:JSON.stringify(dept),
+			contextType : "application/json; charset=utf-8",
+			cache:false,
+			beforeSend:function(xhr){
+			},
+			success:function(xhr,status,er){
+				if(callback){
+					callback(result);
+				}
+			},
+			error:function(xhr,status,xhr){
+				if(error){
+					error(er);
+				}
+			}
+		});
+	} // add
+	
+	return {
+		add:add
+	};
+})();

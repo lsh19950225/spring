@@ -1,0 +1,13 @@
+[수업 내용 정리]
+
+1. home.jsp
+	a href="/scott/dept" 추가
+
+2. ScottController 추가
+	
+	// 컨트롤 메서드
+	dept(){
+	}
+
+3. DeptMapper.java 인터페이스
+	DeptMapper.xml 매퍼 파일

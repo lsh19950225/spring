@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+   xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+      http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+   
+   <!--
+   		톰캣이 시작할 때 web.xml 이 시작(읽혀진다.)된다.
+    
+   		프론트 컨트롤러가 여러개가 될 수 있다.
+   		
+   		프론트 컨트롤러가 생성이 되면 컨테이너가 생성된다. 그 안에서 스프링 빈 객체를 사용하며, 
+   		다른 프론트 컨트롤러에 빈 객체를 사용할 수 없다.
+   		사용할려면 같이 사용할 수 있는 영역(공장)을 만들어준다. 그게 root-context.xml 이다.
+   		
+   		root-context.xml : 모든 컨테이너가 공통적으로 빈 객체를 넣어두는 곳이다.
+   		
+   		나만의 사용하는 객체는 servlet-context.xml 에 넣어둔다. 지금은 하나밖에 없지만,
+   		프론트 컨트롤러가 생성되면 따라서 생성된다.
+    -->
+      
+   <!-- Root Context: defines shared resources visible to all other web components -->
+   <context:component-scan base-package="org.doit.ik"></context:component-scan>
+   
+   <!-- 커넥션 풀 -->
+   <!-- p84 -->
+   <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+     <!--    p102
+     <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+     <property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:XE"></property>
+      -->      
+     <property name="driverClassName"    value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
+     <property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:xe"></property>
+     <property name="username" value="scott"></property>
+     <property name="password" value="tiger"></property> 
+   </bean>
+   
+   <!-- 스프링에서 db 처리는 dataSource 를 이용한다. -->
+   <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+     <constructor-arg ref="hikariConfig"></constructor-arg>
+   </bean>
+   
+   <!-- p91 -->
+   <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+     <property name="dataSource" ref="dataSource"></property>
+     <property name="configLocation" value="classpath:org/doit/ik/mapper/mybatis-config.xml"></property>
+   </bean>
+      
+   <!-- p95 -->
+   <mybatis-spring:scan base-package="org.doit.ik.mapper"/>
+   
+   <!-- p508 스프링 트랜잭션을 처리할 JDBC기반의 트랜잭션 관리자 등록
+    Spring JDBC 또는 mybatis DB처리 -->
+   <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+     <property name="dataSource"  ref="dataSource" />
+   </bean>
+      
+</beans>

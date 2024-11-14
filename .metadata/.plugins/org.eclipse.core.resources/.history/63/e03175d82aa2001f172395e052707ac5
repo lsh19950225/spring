@@ -1,0 +1,7 @@
+package org.doit.ik.mapper.scott;
+
+public interface DeptMapper {
+	
+	
+	
+}

@@ -1,0 +1,9 @@
+package org.doit.ik.mapper;
+
+public interface TimeMapper {
+	
+	String getTime(); // 디비에서 현재 시간을 읽어온다.
+	
+	String getNextTime();
+	
+} // interface
