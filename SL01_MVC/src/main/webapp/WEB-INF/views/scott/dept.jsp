@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="shortcut icon" type="image/x-icon" href="images/SiSt.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/resources/images/SiSt.ico">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/resources/cdn-main/example.css">
@@ -224,9 +224,19 @@
   						.appendTo( $("table tbody") )
   						.find("span.delete")
   							.on("click",function(){
-  								alert("클릭한 부서 삭제");
+  								// alert("클릭한 부서 삭제");
   								
-  								let deptno = $(this).data("deptno");
+  								if (   confirm("정말 삭제할까요?")  ) {
+                             // data-deptno="50"
+                               let deptno = $(this).data("deptno");
+                             var spanDelete = $(this);
+                           deptService.remove(deptno, function (result){
+                            if(result === 'SUCCESS')
+                               $(event.currentTarget).parents("tr").remove();
+                             });
+                          } // if
+  								
+  								/* let deptno = $(this).data("deptno");
   					  			let rowToDelete = $(this).closest("tr");
   					  			
   					  			deptRemove.remove(deptno, function(result){
@@ -234,7 +244,7 @@
   					  					rowToDelete.remove();
   					  				} // if
   					  				alert(result);
-  					  			});
+  					  			}); */
   								
   							});
   				} // if
@@ -244,9 +254,9 @@
   		
   		// 새로 생성되는 부서의 닫기가 아닌 원래 있던 닫기 버튼의 클릭 이벤트
   		$("#tbl-dept > tbody > tr > td:nth-child(5) > span").on("click",function(){
-  			alert("클릭한 부서 삭제");
+  			// alert("클릭한 부서 삭제");
   			
-  			let deptno = $(this).data("deptno");
+  			/* let deptno = $(this).data("deptno");
   			let rowToDelete = $(this).closest("tr");
   			
   			deptRemove.remove(deptno, function(result){
@@ -254,7 +264,8 @@
   					rowToDelete.remove();
   				} // if
   				alert(result);
-  			});
+  			}); */
+  			
   		});
   		
   		// 검색 버튼

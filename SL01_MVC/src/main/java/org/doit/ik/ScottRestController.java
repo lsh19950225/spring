@@ -18,7 +18,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,13 +52,40 @@ public class ScottRestController {
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-	// json -> DeptDTO 로 바로 받을 수 있다.
-	@PostMapping(value = "/scott/dept/remove")
+	/*
+	 * // json -> DeptDTO 로 바로 받을 수 있다.
+	 * 
+	 * @PostMapping(value = "/scott/dept/remove") // ResponseEntity : 성공, 실패와 응답
+	 * 상태값을 준다. / 네트워크에서 확인 public ResponseEntity<String> removeDept(@RequestBody
+	 * int deptno){ logger.info("scottRestController.removeDept()");
+	 * 
+	 * int rowCount = this.deptMapper.removeDept(deptno);
+	 * 
+	 * return rowCount == 1 ? new ResponseEntity<>("SUCCESS", HttpStatus.OK) : new
+	 * ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR); }
+	 */
+	
+	/*
+	 * @GetMapping(value = "/scott/dept/delete") // ResponseEntity : 성공, 실패와 응답 상태값을
+	 * 준다. / 네트워크에서 확인 public ResponseEntity<String>
+	 * deleteDept( @RequestParam("deptno") int deptno ){
+	 * logger.info("scottRestController.deleteDept()");
+	 * 
+	 * // int deptno = Integer.parseInt( request.getParameter("deptno") );
+	 * 
+	 * int rowCount = this.deptMapper.deleteDept(deptno);
+	 * 
+	 * return rowCount == 1 ? new ResponseEntity<>("SUCCESS", HttpStatus.OK) : new
+	 * ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR); }
+	 */
+	
+	// delete + scott/dept/50
+	@DeleteMapping(value = "/scott/dept/{deptno}") // 문법이다. 이름 상관없다.
 	// ResponseEntity : 성공, 실패와 응답 상태값을 준다. / 네트워크에서 확인
-	public ResponseEntity<String> removeDept(@RequestBody int deptno){
-		logger.info("scottRestController.removeDept()");
+	public ResponseEntity<String> deleteDept( @PathVariable("deptno") int deptno ){
+		logger.info("scottRestController.deleteDept()");
 		
-		int rowCount = this.deptMapper.removeDept(deptno);
+		int rowCount = this.deptMapper.deleteDept(deptno);
 		
 		return rowCount == 1 
 				? new ResponseEntity<>("SUCCESS", HttpStatus.OK)

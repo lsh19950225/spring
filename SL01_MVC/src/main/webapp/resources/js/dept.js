@@ -29,12 +29,64 @@ const deptService = (function(){
 		});
 	} // add
 	
+	/* // DELETE + http://localhost/scott/dept/50 이렇게 한다.
+	// data:JSON.stringify(dept) js 객체 -> JSON
+	function remove(deptno, callback, error){
+		console.log("> deptService.remove()");
+		
+		$.ajax({
+			type:'get',
+			url:'/scott/dept/delete',
+			data:`deptno=${deptno}`,
+			cache:false,
+			beforeSend:function(xhr){
+				console.log("remove.beforeSend test");
+			},
+			success:function(result,status,er){
+				if(callback){
+					callback(result);
+				} // if
+			},
+			error:function(xhr,status,er){
+				if(error){
+					error(er);
+				} // if
+			}
+		});
+	} // remove */
+	
+	// DELETE + http://localhost/scott/dept/50 이렇게 한다. / 레스트풀 방식
+	// data:JSON.stringify(dept) js 객체 -> JSON
+	function remove(deptno, callback, error){
+		console.log("> deptService.remove()");
+		
+		$.ajax({
+			type:'delete',
+			url:'/scott/dept/${deptno}',
+			cache:false,
+			beforeSend:function(xhr){
+				console.log("remove.beforeSend test");
+			},
+			success:function(result,status,er){
+				if(callback){
+					callback(result);
+				} // if
+			},
+			error:function(xhr,status,er){
+				if(error){
+					error(er);
+				} // if
+			}
+		});
+	} // remove
+	
 	return {
-		add:add
+		add:add,
+		remove:remove
 	};
 })();
 
-const deptRemove = (function(){
+/* const deptRemove = (function(){
 	
 	function remove(deptno, callback, error){
 		console.log("> deptRemove.remove()");
@@ -64,4 +116,4 @@ const deptRemove = (function(){
 	return {
 		remove:remove
 	};
-})();
+})(); */

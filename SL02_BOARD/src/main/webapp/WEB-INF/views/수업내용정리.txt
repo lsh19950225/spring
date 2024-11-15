@@ -1,0 +1,56 @@
+N-tier
+3_Tier(티어) 방식
+1) 화면 계층 ( Presentation Tier )
+2) 로직 계층 ( Business Tier )
+3) 데이터 계층 ( == 영속 계층, Persistence Tier )
+
+스프링 MVC
+
+> 패키지의 이름 명명
+org.doit.ik 최상위 패키지
+	ㄴ config 			프로젝트 관련 설정
+	ㄴ controller 		컨트롤러
+	ㄴ service 			서비스
+	ㄴ domain 			VO, DTO 객체
+	ㄴ persistence 	DAO, mybatis
+	ㄴ exception 		예외처리
+	ㄴ aop				스프링 AOP
+	ㄴ security			스프링 보안(인증, 권한)
+	ㄴ util					각종 유용한 유틸리티
+
+테이블 생성
+        CREATE TABLE tbl_board
+    (
+        bno number(10)
+      , title varchar2(200) not null
+      , content varchar2(2000) not null
+      , writer varchar2(50) not null
+      , regdate date default sysdate
+      , updatedate date default sysdate
+    );
+    
+    alter table tbl_board add constraint pk_tblboard_bno primary key(bno);
+    
+     CREATE SEQUENCE seq_board;  
+
+스토리보드
+PowerPoint / Pencil Mockup 툴 : 화면 설계
+
+1) domain
+		ㄴ BoardVO.java
+
+2) 게시판 목록 조회 구현
+	mapper
+		ㄴ BoardMapper.java 인터페이스
+		ㄴ BoardMapper.xml 매퍼 파일
+3) home.jsp 메인 페이지
+<a href="/board/list">/board/list</a>
+
+4) BoardController
+	list 컨트롤러 메서드 구현
+	
+5) views
+	ㄴ board
+		ㄴ list.jsp 추가
+		
+6) 글쓰기 : <a href="/board/register">글쓰기</a>
