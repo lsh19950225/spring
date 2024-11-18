@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!-- 맵핑하는 파일 / 맵퍼파일 -->
+  <mapper namespace="org.doit.ik.mapper.BoardMapper">
+  	
+  	<select id="getList" resultType="org.doit.ik.domain.BoardVO">
+  		<![CDATA[
+  		select *
+  		from tbl_board
+  		where bno > 0
+  		order by bno desc
+  		]]>
+  	</select>
+  	
+  	<!-- pageNum : 페이지 번호, amount : 페이지 게시글 갯수 -->
+  	<select id="getListWithPaging" resultType="org.doit.ik.domain.BoardVO">
+     <![CDATA[
+     SELECT bno, title, content, writer, regdate, updatedate
+     FROM (
+            SELECT /*+INDEX_DESC(tbl_board pk_tblboard_bno )*/
+                   rownum rn, bno, title, content, writer, regdate, updatedate
+            FROM tbl_board 
+            WHERE rownum <= #{ pageNum } * #{ amount }
+           )
+     WHERE rn > (#{ pageNum } - 1) * #{ amount }
+     ]]>
+   </select>
+   
+   <!-- int getTotalCount(Criteria criteria); 총 레코드 수를 반환 -->
+   <select id="getTotalCount" resultType="int">
+   	<![CDATA[
+   		select count(*)
+   		from tbl_board
+   		where bno > 0
+   	]]>
+   </select>
+  	
+  	<!-- void insert(BoardVO board); // 새글 쓰기 -->
+  	<insert id="insert" parameterType="org.doit.ik.domain.BoardVO">
+  		INSERT INTO tbl_board (bno, title, content, writer)
+     	VALUES ( seq_board.nextval,  #{title}, #{content}, #{writer} ) 
+  	</insert>
+  	
+  	<!-- void insertSelectKey(BoardVO board); // 새글 쓰기 + 글번호(pk) 반환 -->
+  	<insert id="insertSelectKey" parameterType="org.doit.ik.domain.BoardVO">
+  		<selectKey order="BEFORE" resultType="long" keyProperty="bno">
+  			select seq_board.nextval
+  			from dual
+  		</selectKey>
+  		INSERT INTO tbl_board (bno, title, content, writer)
+     	VALUES ( #{bno}, #{title}, #{content}, #{writer} )
+  	</insert>
+  	
+  	<select id="read" resultType="org.doit.ik.domain.BoardVO">
+  		select *
+  		from tbl_board
+  		where bno = #{bno}
+  	</select>
+  	
+  	<update id="update">
+  		update tbl_board
+  		set title=#{title}, content=#{content}
+  					, writer=#{writer}, updatedate=SYSDATE
+  		where bno = #{bno}
+  	</update>
+  	
+  	<delete id="delete">
+  		delete
+  		from tbl_board
+  		where bno = #{bno}
+  	</delete>
+  	
+  </mapper>

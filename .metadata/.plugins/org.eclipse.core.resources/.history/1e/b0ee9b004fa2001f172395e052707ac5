@@ -1,8 +1,0 @@
-console.log("Dept Module........");
-
-const deptService = (function(){
-	
-	// http://localhost/scott/dept/new 새로운 부서 추가
-	
-	return {};
-})();

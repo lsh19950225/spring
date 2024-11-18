@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+   xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+      http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+   
+   <!-- RecordImpl record = new RecordImpl(); 밑이랑 똑같은 코딩이다. -->
+   <bean id="record" class="org.doit.ik.di.RecordImpl"></bean>
+   
+   <!-- RecordViewImpl rvi = new RecordViewImpl(); -->
+   <bean id="rvi" class="org.doit.ik.di.RecordViewImpl">
+   	<!-- [1] rvi.setRecord(record); -->
+   	<!-- 여기서 name : setRecord 에서 set 빼고 R 소문자로해서 record 이걸 나타낸다. -->
+   	<!-- ref 에 record 는 위에 id를 나타낸다. -->
+   	<!-- <property name="record" ref="record"></property> : 밑이랑 똑같은 코딩이다. -->
+   	<property name="record">
+   		<ref bean="record" />
+   	</property>
+   	
+   	<!-- [2] new RecordViewImpl(record); -->
+   	<!-- <constructor-arg ref="record" /> : 생성자로 하는 법 -->
+   </bean>
+</beans>

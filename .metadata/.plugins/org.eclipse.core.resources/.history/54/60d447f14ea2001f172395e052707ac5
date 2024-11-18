@@ -1,6 +1,0 @@
-console.log("Dept Module........");
-
-const deptService = (function(){
-	
-	return {};
-})();
