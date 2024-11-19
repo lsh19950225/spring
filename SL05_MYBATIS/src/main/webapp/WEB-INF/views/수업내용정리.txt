@@ -1,0 +1,39 @@
+[수업내용정리]
+
+p563 MyBatis 연동지원
+1. 모듈 추가
+	  <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis p91-->
+      <dependency>
+          <groupId>org.mybatis</groupId>
+          <artifactId>mybatis</artifactId>
+          <version>3.4.6</version>
+      </dependency>
+      
+      <!-- mybatis랑 spring를 연결해준다. -->
+      <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+      <dependency>
+          <groupId>org.mybatis</groupId>
+          <artifactId>mybatis-spring</artifactId>
+          <version>1.3.2</version>
+      </dependency>
+
+2. sqlSessionFactoryBean 은 스프링 + mybatis 연동 처리하는 데 사용되는 빈 객체
+   <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+     <property name="dataSource" ref="dataSource"></property>
+     <property name="configLocation" value="classpath:org/doit/ik/mapper/mybatis-config.xml"></property>
+   </bean>
+
+3. transactionManager 트랜잭션 설정
+   <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+     <property name="dataSource"  ref="dataSource" />
+   </bean>
+
+4. mybatis 를 이용한 DAO 구현
+	1) SqlSession 이용 구현
+	*** 2) 매퍼 동적 생성 이용 구현 ***
+
+5. 실습
+	- 조인(join) 처리
+	- dept/emp/salgrade	테이블 조인
+	- dept/emp 요청 url
+	- DeptEmpSalgradeMapper 매퍼 XML 파일

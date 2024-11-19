@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+   xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+      http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+   
+   <!-- Namespaces 에서 context 클릭하면 자동 설정 된다. -->
+   
+   <!-- p104 -->
+   <!-- 자동으로 @autowired, @resource, @qualifier 등등 등록 된다. -->
+   <context:annotation-config />
+   
+   <!-- id 속성을 주지 않으면 recordImpl3 이렇게 만들어 진다. -->
+   <!-- 2개 이상이면 @Resource 사용한다. -->
+   <bean id="record1" class="org.doit.ik.di3.RecordImpl3"></bean>
+   <bean id="record2" class="org.doit.ik.di3.RecordImpl3"></bean>
+   
+   <bean id="rvi" class="org.doit.ik.di3.RecordViewImpl3"></bean>
+   
+</beans>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+   xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+      http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+   		
+   		<context:component-scan base-package="org.doit.ik.aop2" />
+	   	
+	   	<!-- 스프링 AOP = 프록시 joinpoint : 메서드 기반(호출) -->
+	   	<bean id="calcProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+	   		<!-- 1. 핵심 기능을 구현하는 빈 실제객체(target) 등록 -->
+	   		<property name="target" ref="calc"></property>
+	   		<!-- 2. pointcut 설정 -->
+	   		<!-- 배열이라 리스트로 준다. -->
+	   		<property name="proxyInterfaces">
+	   			<list>
+	   				<value>org.doit.ik.aop.Calculator</value>
+	   			</list>
+	   		</property>
+	   		<!-- 3. advice 등록 -->
+	   		<!-- 배열이라 리스트로 준다. -->
+	   		<property name="interceptorNames">
+	   			<list>
+	   				<value>logPrintAroundAdvice</value>
+	   				<value>logPrintBeforeAdvice</value>
+	   				<value>logPrintAfterReturningAdvice</value>
+	   			</list>
+	   		</property>
+	   	</bean>
+   
+</beans>
