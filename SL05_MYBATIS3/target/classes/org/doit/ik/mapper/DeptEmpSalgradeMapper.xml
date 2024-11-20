@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!-- 맵핑하는 파일 / 맵퍼파일 -->
+  										<!-- 이 패키지 안에 이 인터페이스가 하나 있어야 된다. -->
+  <mapper namespace="org.doit.ik.mapper.DeptEmpSalgradeMapper">
+  
+  <!-- [SL05_MYBATIS] 코딩
+	  	<select id="getDeptEmpInfo" resultType="DeptEmpSalgradeDTO">
+	  		SELECT d.deptno, dname, empno, ename, job, hiredate, sal, grade
+		    FROM emp e JOIN dept d ON d.deptno = e.deptno
+		               JOIN salgrade s ON sal BETWEEN losal AND hisal
+		    ORDER BY d.deptno ASC
+	  	</select>
+   -->
+  		
+  		<resultMap type="DeptEmpSalgradeDTO" id="deptEmpResultMap">
+			<!-- 1:1 관계(연관 관계) DeptDTO -->
+			<association property="deptDTO" javaType="org.doit.ik.domain.DeptDTO">
+				<id property="deptno" column="deptno" />
+				<result property="dname" column="dname" />
+			</association>
+			<!-- 1:N 관계(연관 관계) EmpDTO -->
+			<collection property="empDTO" javaType="org.doit.ik.domain.EmpDTO">
+				<id property="empno" column="empno" />
+				<result property="ename" column="ename" />
+				<result property="job" column="job" />
+				<result property="hiredate" column="hiredate" />
+				<result property="sal" column="sal" />
+				<!-- empDTO + salgradeDTO 1:1 관계(연관 관계) -->
+				<association property="salgradeDTO" javaType="org.doit.ik.domain.SalgradeDTO">
+					<result property="grade" column="grade" />
+				</association>
+			</collection>
+  		</resultMap>
+  		
+	  	<select id="getDeptEmpInfo" resultMap="deptEmpResultMap">
+	  		SELECT d.deptno, dname, empno, ename, job, hiredate, sal, grade
+		    FROM emp e JOIN dept d ON d.deptno = e.deptno
+		               JOIN salgrade s ON sal BETWEEN losal AND hisal
+		    ORDER BY d.deptno ASC
+	  	</select>
+	  	
+  </mapper>

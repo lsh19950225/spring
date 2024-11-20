@@ -1,0 +1,9 @@
+[수업내용정리]
+1. SL06_NLMVC2
+2. 문제점
+	1) 공지사항 목록(notice.htm) -> NoticeController 매핑
+	2) 공지사항 상세보기(noticeDetail.htm) -> NoticeDetailController 매핑
+	공지사항(Notice)과 관련된 매핑은 하나의 컨트롤러 생성 + 컨트롤러 메서드와 매핑
+	
+	3) servlet-context.xml
+		<bean> 빈생성 + DI -> @어노테이션 으로 자동 처리로 구현한다.

@@ -1,0 +1,50 @@
+[수업내용정리]
+1. org.doit.ik.domain 패키지 추가 - VO, DTO
+2. org.doit.ik.controller 패키지 추가 - controller
+3. org.doit.ik.persistence 패키지 추가 - DAO, Mapper
+4. org.doit.ik.service 패키지 추가 - Service
+5. 테이블 생성
+   --           공지사항(게시판)
+   CREATE TABLE NOTICES
+   (
+      "SEQ" VARCHAR2(10 BYTE),  -- 글번호
+      "TITLE" VARCHAR2(200 BYTE), -- 제목
+      "WRITER" VARCHAR2(50 BYTE), -- 작성자
+      "CONTENT" VARCHAR2(4000 BYTE), -- 내용
+      "REGDATE" TIMESTAMP (6),  -- 작성일
+      "HIT" NUMBER,  -- 조회수
+      "FILESRC" VARCHAR2(500 BYTE) -- 첨부파일
+   );
+   -- Table NOTICES이(가) 생성되었습니다.
+   
+   --            회원
+   DROP TABLE "MEMBER"
+   CREATE TABLE "MEMBER"
+   (   
+       "ID" VARCHAR2(50 BYTE),  -- UID -> ID 수정 : 예약어라 수정함
+       "PWD" VARCHAR2(50 BYTE), 
+       "NAME" VARCHAR2(50 BYTE), 
+       "GENDER" VARCHAR2(10 BYTE), 
+       "BIRTH" VARCHAR2(10 BYTE), 
+       "IS_LUNAR" VARCHAR2(10 BYTE), 
+       "CPHONE" VARCHAR2(15 BYTE), 
+       "EMAIL" VARCHAR2(200 BYTE), 
+       "HABIT" VARCHAR2(200 BYTE), 
+       "REGDATE" DATE
+   );
+   -- Table "MEMBER"이(가) 생성되었습니다.
+
+6. 공지사항 목록
+		CommandHandler 인터페이스
+			ㄴ process()
+		ListHandler implements CommandHandler {
+			@Override
+			process(){
+				List<NoticeVO> list = dao.select();
+				request.setAttribute("list",list);
+				return "list.jsp";
+			}
+		}
+
+7. 공지사항 상세보기 구현
+test : 디버깅 하기 위한 폴더
