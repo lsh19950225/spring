@@ -106,6 +106,10 @@
 							<input class="btn-save button" type="submit" value="저장" />
 							<a class="btn-cancel button" href="notice.jsp">취소</a>						
 						</p>
+						
+						<!-- 시큐리티 토큰 : 토큰 값이 맞지 않으면 접근 불가? -->
+						<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
+						
 					</form>							
 				</div>				
 				<div id="navi">

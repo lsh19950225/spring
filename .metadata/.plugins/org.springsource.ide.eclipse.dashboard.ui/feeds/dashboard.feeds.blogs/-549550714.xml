@@ -1,4 +1,322 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Spring]]></title><description><![CDATA[Level up your Java code and explore what Spring can do for you.]]></description><link>https://spring.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 20 Nov 2024 00:34:16 GMT</lastBuildDate><item><title><![CDATA[Spring Authorization Server 1.4 goes GA]]></title><link>https://spring.io/blog/2024/11/19/spring-authorization-server-1-4-goes-ga</link><guid isPermaLink="true">https://spring.io/blog/2024/11/19/spring-authorization-server-1-4-goes-ga</guid><dc:creator><![CDATA[jgrandja]]></dc:creator><pubDate>Tue, 19 Nov 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;On behalf of the team and everyone who has contributed, it is my pleasure to announce the release of Spring Authorization Server 1.4.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Spring]]></title><description><![CDATA[Level up your Java code and explore what Spring can do for you.]]></description><link>https://spring.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 21 Nov 2024 00:34:07 GMT</lastBuildDate><item><title><![CDATA[Spring AI 1.0.0 M4 Release]]></title><link>https://spring.io/blog/2024/11/20/spring-ai-1-0-0-m4-released</link><guid isPermaLink="true">https://spring.io/blog/2024/11/20/spring-ai-1-0-0-m4-released</guid><dc:creator><![CDATA[markpollack]]></dc:creator><pubDate>Wed, 20 Nov 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;We are happy to announce the 1.0.0 Milestone 4 release of Spring AI.&lt;/p&gt;
+&lt;p&gt;This release has squashed most of the reported bugs and brings significant enhancements across various areas.&lt;/p&gt;
+&lt;h2 id=&quot;amazon-bedrock-converse&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#amazon-bedrock-converse&quot; aria-label=&quot;amazon bedrock converse permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Amazon Bedrock Converse&lt;/h2&gt;
+&lt;p&gt;Spring AI now supports the &lt;a href=&quot;https://docs.spring.io/spring-ai/reference/api/bedrock-converse.html&quot;&gt;Amazon Bedrock Converse API&lt;/a&gt;, which provides a unified interface for the AI chat models that Amazon offers. Unlike the older Bedrock Invoke API, Converse introduces exciting new features such as &lt;strong&gt;Tool Calling&lt;/strong&gt; and &lt;strong&gt;Multimodality/Visual capabilities&lt;/strong&gt; (for models that support these features). This makes it a more powerful and versatile option for working with Amazon¡¯s chat models.&lt;/p&gt;
+&lt;p&gt;In many ways, the Converse API serves a role similar to Spring AI itself, offering portability across model APIs but limited to Amazon&apos;s chat models. We recommend transitioning to the Converse module for chat models. Note that embedding models remain unaffected.&lt;/p&gt;
+&lt;p&gt;For details on this new capability, refer to the Spring AI Bedrock Converse documentation. You can also follow &lt;a href=&quot;https://github.com/spring-projects/spring-ai/issues/1758&quot;&gt;upcoming improvements&lt;/a&gt; for future enhancements.  Many thanks to &lt;a href=&quot;https://github.com/maxjiang153&quot;&gt;Max Jiang&lt;/a&gt; for starting this large undertaking.&lt;/p&gt;
+&lt;h2 id=&quot;function-calling-improvements&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#function-calling-improvements&quot; aria-label=&quot;function calling improvements permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Function Calling improvements&lt;/h2&gt;
+&lt;h3 id=&quot;function-types-and-methods&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#function-types-and-methods&quot; aria-label=&quot;function types and methods permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Function Types and Methods&lt;/h3&gt;
+&lt;p&gt;Recent improvements expand support for various Function types and methods through the &lt;code&gt;FunctionCallback&lt;/code&gt; Builder class. This allows invocation of &lt;code&gt;java.util.Function&lt;/code&gt;, &lt;code&gt;Supplier&lt;/code&gt;, and &lt;code&gt;Consumer&lt;/code&gt; interfaces.&lt;/p&gt;
+&lt;h4 id=&quot;basic-function-callback&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#basic-function-callback&quot; aria-label=&quot;basic function callback permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Basic Function Callback&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;FunctionCallback callback = FunctionCallback.builder()
+    .description(&quot;Process a new order&quot;)
+    .function(&quot;processOrder&quot;, (Order order) -&gt; processOrderLogic(order))
+    .inputType(Order.class)
+    .build();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;using-toolcontext-using-toolcontext&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#using-toolcontext-using-toolcontext&quot; aria-label=&quot;using toolcontext using toolcontext permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Using ToolContext {#using-toolcontext}&lt;/h4&gt;
+&lt;p&gt;Access additional state or context using &lt;code&gt;ToolContext&lt;/code&gt; with &lt;code&gt;BiFunction&amp;#x3C;I, ToolContext, O&gt;&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@Bean
+@Description(&quot;Get the weather in location&quot;)
+public BiFunction&amp;#x3C;WeatherService.Request, ToolContext, WeatherService.Response&gt; weatherFunctionWithContext() {
+    return (request, context) -&gt; new MockWeatherService().apply(request);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;method-invocation&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#method-invocation&quot; aria-label=&quot;method invocation permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Method Invocation&lt;/h4&gt;
+&lt;p&gt;Method invocation support provides the foundation for the upcoming &lt;code&gt;@ToolMapping&lt;/code&gt; annotation in M5:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public static class LightControl {
+    private static final Logger logger = LoggerFactory.getLogger(LightControl.class);
+    private final Map&amp;#x3C;String, Object&gt; arguments = new HashMap&amp;#x3C;&gt;();
+
+    public void controlLight(String roomName, boolean on) {
+        arguments.put(&quot;roomName&quot;, roomName);
+        arguments.put(&quot;on&quot;, on);
+        logger.info(&quot;Setting light in room &apos;{}&apos; to: {}&quot;, roomName, on ? &quot;ON&quot; : &quot;OFF&quot;);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Usage:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;LightControl lightControl = new LightControl();
+
+String response = ChatClient.create(this.chatModel)
+    .prompt(&quot;Turn light on in the living room.&quot;)
+    .functions(
+        FunctionCallback.builder()
+            .description(&quot;Controls lights by room name, allowing them to be turned on or off.&quot;)
+            .method(&quot;controlLight&quot;, String.class, boolean.class)
+            .targetObject(lightControl)
+            .build()
+    )
+    .call()
+    .content();
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For additional features, consult the &lt;a href=&quot;https://docs.spring.io/spring-ai/reference/api/function-callback.html&quot;&gt;FunctionCallback documentation&lt;/a&gt; which covers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Schema type configuration (JSON Schema and OpenAPI Schema support)&lt;/li&gt;
+&lt;li&gt;Custom response handling and object mapping&lt;/li&gt;
+&lt;li&gt;Support for generic input types using &lt;code&gt;ParameterizedTypeReference&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Automatic schema generation from Java types, including Jackson annotation support&lt;/li&gt;
+&lt;li&gt;Guidelines for writing effective function descriptions and error handling&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;kotlin-support&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#kotlin-support&quot; aria-label=&quot;kotlin support permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Kotlin Support&lt;/h2&gt;
+&lt;p&gt;Spring AI introduces support for Kotlin, making it even easier for Kotlin developers to integrate AI capabilities into their applications. This release introduces idiomatic Kotlin extensions and type-safe APIs.  Many thanks to Sebastien Deleuze for taking on this work.&lt;/p&gt;
+&lt;h4 id=&quot;type-safe-response-handling&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#type-safe-response-handling&quot; aria-label=&quot;type safe response handling permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Type-Safe Response Handling&lt;/h4&gt;
+&lt;p&gt;The new Kotlin extensions enable more concise and type-safe ways to handle AI responses. Instead of using Java-style type declarations, you can now use Kotlin&apos;s reified generics:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import org.springframework.ai.chat.client.entity
+
+data class Joke(val setup: String, val punchline: String)
+
+@SpringBootApplication
+class KotlinHelloWorldApplication {
+
+   @Bean
+   fun jokeRunner(chatModel: ChatModel) = CommandLineRunner {
+      val response = ChatClient.create(chatModel).prompt().user(&quot;Tell me a joke&quot;).call().entity&amp;#x3C;Joke&gt;()
+
+      println(&quot;\nJoke:&quot;)
+      println(&quot;Setup: ${response.setup}&quot;)
+      println(&quot;Punchline: ${response.punchline}&quot;)
+   }
+}
+
+fun main(args: Array&amp;#x3C;String&gt;) {
+   runApplication&amp;#x3C;KotlinHelloWorldApplication&gt;(*args)
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;function-registration&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#function-registration&quot; aria-label=&quot;function registration permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Function Registration&lt;/h4&gt;
+&lt;p&gt;Kotlin functions can now be directly registered as AI tools. The syntax is straightforward:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@Configuration
+class Config {
+
+   @Bean
+   fun weatherFunctionInfo(currentWeather: (WeatherRequest) -&gt; WeatherResponse): FunctionCallback {
+      return FunctionCallback.builder()
+         .description(
+            &quot;Find the weather conditions, forecasts, and temperatures for a location, like a city or state.&quot;
+         )
+         .function(&quot;WeatherInfo&quot;, currentWeather)
+         .inputType(WeatherRequest::class.java)
+         .build()
+   }
+
+   @Bean
+   @Description(&quot;Get current weather&quot;)
+   fun currentWeather(): (WeatherRequest) -&gt; WeatherResponse = { request -&gt;
+      MockKotlinWeatherService().invoke(request)
+   }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, it can be used as below.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@Bean
+open fun init(chatModel: ChatModel) = CommandLineRunner {
+
+   try {
+      val userMessage = UserMessage(
+         &quot;What are the weather conditions in San Francisco, Tokyo, and Paris? Find the temperature in Celsius for each of the three locations.&quot;
+      )
+
+      val response = chatModel.call(
+         Prompt(
+            listOf(userMessage),
+            OpenAiChatOptions.builder().withFunction(&quot;WeatherInfo&quot;).build()
+         )
+      )
+
+      println(&quot;Response: $response&quot;)
+   } 
+   catch (e: Exception) {
+      println(&quot;Error during weather check: ${e.message}&quot;)
+   }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The reference documentation has been updated to include Kotlin examples, and you can find other examples in the &lt;a href=&quot;https://github.com/spring-projects/spring-ai-examples&quot;&gt;spring-ai-examples&lt;/a&gt; repository.&lt;/p&gt;
+&lt;h2 id=&quot;additional-project-resources&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#additional-project-resources&quot; aria-label=&quot;additional project resources permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Additional Project Resources&lt;/h2&gt;
+&lt;p&gt;The repository &lt;a href=&quot;https://github.com/danvega/awesome-spring-ai&quot;&gt;awesome-spring-ai&lt;/a&gt; keeps the theme of other ¡°awseome¡± repositories and collects community related resources for Spring AI such as book, presentation, example code and so on.  Please make PRs to the repository for any useful material you a have found.&lt;/p&gt;
+&lt;p&gt;The repository &lt;a href=&quot;http://spring-ai-integration-tests&quot;&gt;spring-ai-integration-tests&lt;/a&gt; is now available and is making progress to run all the integration tests for the entire project twice daily.&lt;/p&gt;
+&lt;p&gt;The repository &lt;a href=&quot;https://github.com/spring-projects/spring-ai-examples&quot;&gt;spring-ai-examples&lt;/a&gt; is now available for hosting ¡°official¡± examples.  Check out the reflection agent example!&lt;/p&gt;
+&lt;p&gt;Also, as an introduction to the project, check out the blog post &lt;a href=&quot;https://spring.io/blog/2024/11/19/why-spring-ai&quot;&gt;Why Spring AI&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;advanced-and-modular-rag&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#advanced-and-modular-rag&quot; aria-label=&quot;advanced and modular rag permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Advanced and Modular RAG&lt;/h2&gt;
+&lt;p&gt;Spring AI introduces experimental support for advanced Retrieval Augmented Generation (RAG) based on recent research in modular RAG system design, in particular the papers &lt;a href=&quot;https://export.arxiv.org/abs/2407.21059&quot;&gt;Modular RAG: Transforming RAG Systems into LEGO-like Reconfigurable Frameworks&lt;/a&gt; and &lt;a href=&quot;https://arxiv.org/abs/2312.10997&quot;&gt;Retrieval-Augmented Generation for Large Language Models: A Survey&lt;/a&gt;.  A big thanks to Thomas Vittale for leading this effort.&lt;/p&gt;
+&lt;p&gt;Here are the key building blocks:&lt;/p&gt;
+&lt;p&gt;Pre-retrieval Components&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;QueryTransformer&lt;/code&gt;: Transforms queries to improve retrieval effectiveness (e.g., translation, rewrites)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;QueryExpander&lt;/code&gt;: Expands single queries into multiple variations for broader context capture&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Orchestration Components&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;QueryRouter&lt;/code&gt;: Routes queries to appropriate retrievers based on metadata or semantic analysis&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Retrieval Components&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;DocumentRetriever&lt;/code&gt;: Core interface for retrieving relevant documents&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;DocumentJoiner&lt;/code&gt;: Combines results from multiple retrievers/queries&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Post-retrieval Components&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;DocumentCompressor&lt;/code&gt;: Reduces document content while preserving key information&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;DocumentRanker&lt;/code&gt;: Reorders documents by relevance&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;DocumentSelector&lt;/code&gt;: Filters retrieved documents based on criteria&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Augmentation Components&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;QueryAugmenter&lt;/code&gt;: Enhances queries with retrieved context&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ContextualQueryAugmenter&lt;/code&gt;: Default implementation focused on document context integration&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Building on our modular RAG components, the &lt;code&gt;RetrievalAugmentationAdvisor&lt;/code&gt; provides an implementation to get you started and provides a linear RAG flow:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Query Creation: Creates Query from user text using PromptTemplate&lt;/li&gt;
+&lt;li&gt;Query Transformation: Applies QueryTransformers chain&lt;/li&gt;
+&lt;li&gt;Query Expansion: Creates multiple queries via QueryExpander&lt;/li&gt;
+&lt;li&gt;Document Retrieval: Routes and executes parallel retrievals&lt;/li&gt;
+&lt;li&gt;Document Integration: Joins results from all sources&lt;/li&gt;
+&lt;li&gt;Context Augmentation: Enhances query with retrieved context&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You stitch together these collaborating building block components in a bean definition such as&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@Bean
+public RetrievalAugmentationAdvisor customRagAdvisor(VectorStore vectorStore) {
+    return RetrievalAugmentationAdvisor.builder()
+        .queryTransformers(List.of(new TranslationQueryTransformer(...)))
+        .queryExpander(new MultiQueryExpander(...))
+        .queryRouter(
+            AllRetrieversQueryRouter.builder()
+                .documentRetrievers(new VectorStoreDocumentRetriever(...))
+                .build()
+        )
+        .documentJoiner(new ConcatenationDocumentJoiner())
+        .queryAugmenter(new ContextualQueryAugmenter(...))
+        .build();
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;While RetrievalAugmentationAdvisor implements a linear flow, users can implement custom &lt;code&gt;Advisor&lt;/code&gt;s for advanced patterns like conditional, branching, recursive, and adaptive flows.  More documentation is to come and we encourage you to send feedback on our github issue tracker.&lt;/p&gt;
+&lt;h2 id=&quot;other-improvements&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#other-improvements&quot; aria-label=&quot;other improvements permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Other improvements&lt;/h2&gt;
+&lt;p&gt;There were a few locations where Spring Boot being used in the model modules.
+This is no longer the case.  The only dependencies on Spring Boot are not isolated to the autoconfigure module.&lt;/p&gt;
+&lt;p&gt;Azure OpenAI SDK upgraded to version 12 beta.&lt;/p&gt;
+&lt;h3 id=&quot;documentation&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#documentation&quot; aria-label=&quot;documentation permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Documentation&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Added a comprehensive Chat Model comparison page&lt;/li&gt;
+&lt;li&gt;Restructured documentation navigation for better accessibility&lt;/li&gt;
+&lt;li&gt;Updated diagrams for chat model architecture&lt;/li&gt;
+&lt;li&gt;Added guide for programmatic configuration of Vertex embeddings with service accounts&lt;/li&gt;
+&lt;li&gt;Enhanced integration guides:&lt;/li&gt;
+&lt;li&gt;Ollama updates:
+&lt;ul&gt;
+&lt;li&gt;New auto-pull functionality&lt;/li&gt;
+&lt;li&gt;Llama32-Vision support&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Spring AI features:
+&lt;ul&gt;
+&lt;li&gt;Out-of-the-box support for Llama32-Vision&lt;/li&gt;
+&lt;li&gt;Portable multimodality API&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Vector database configuration:
+&lt;ul&gt;
+&lt;li&gt;Milvus&lt;/li&gt;
+&lt;li&gt;Chroma&lt;/li&gt;
+&lt;li&gt;OpenSearch&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Expanded configuration and setup documentation, focusing on:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Property overrides&lt;/li&gt;
+&lt;li&gt;Code examples&lt;/li&gt;
+&lt;li&gt;Integration patterns across different model types&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;vector-store--embedding-improvements&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#vector-store--embedding-improvements&quot; aria-label=&quot;vector store  embedding improvements permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Vector Store &amp;#x26; Embedding Improvements&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Added new vector store implementations for Oracle Coherence and Azure Cosmos&lt;/li&gt;
+&lt;li&gt;Enhanced existing vector stores:
+&lt;ul&gt;
+&lt;li&gt;Azure: Provided ability to match pre-existing field names and use of keyless authentication&lt;/li&gt;
+&lt;li&gt;Milvus: Added support for non-default databases&lt;/li&gt;
+&lt;li&gt;Chroma: Introduced builder pattern for better initialization&lt;/li&gt;
+&lt;li&gt;OpenSearch: Improved configuration structure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Introduced builder pattern for TokenTextSplitter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;contributors&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#contributors&quot; aria-label=&quot;contributors permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Contributors&lt;/h2&gt;
+&lt;p&gt;There were other refactoring, bug fixing, documentation enhancements across the board by a wide range of contributors. If we haven¡¯t gotten to your PR yet, we will, please be patient. Thanks to&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/aseovic&quot;&gt;Aleks Seovic (aseovic)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/apappascs&quot;&gt;Alexandros Pappas (apappascs)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/anders-swanson&quot;&gt;Anders Swanson (anders-swanson)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/bmoussaud&quot;&gt;Benoit Moussaud (bmoussaud)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/tzolov&quot;&gt;Christian Tzolov (tzolov)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/habuma&quot;&gt;Craig Walls (habuma)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/eddumelendez&quot;&gt;Edd? Mel?ndez (eddumelendez)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/emmanuel-ferdman&quot;&gt;Emmanuel Ferdman (emmanuel-ferdman)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/garethjevans&quot;&gt;Gareth Evans (garethjevans)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/1993heqiang&quot;&gt;He Qiang (1993heqiang)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ilayaperumalg&quot;&gt;Ilayaperumal Gopinathan (ilayaperumalg)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/JM-Lab&quot;&gt;Jemin Huh (JM-Lab)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/jee14&quot;&gt;Jiseung Hyeon (jee14)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/jitokim&quot;&gt;Jito Kim (jitokim)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/jxblum&quot;&gt;John Blum (jxblum)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/jsilverman26&quot;&gt;John Silverman (jsilverman26)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/joshlong&quot;&gt;Josh Long (joshlong)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/liugddx&quot;&gt;Liu Guodong (liugddx)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Waischbrot&quot;&gt;Lukas (Waischbrot)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/maxjiang153&quot;&gt;Max Jiang (maxjiang153)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/michael-simons&quot;&gt;Michael J. Simons (michael-simons)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/NerminKarapandzic&quot;&gt;Nermin Karapandzic (NerminKarapandzic)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/zzzadruga&quot;&gt;Nikolai Kulagin (zzzadruga)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/oganes.bozoyan&quot;&gt;Oganes Bozoyan (oganes.bozoyan)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ricken07&quot;&gt;Ricken Bazolo (ricken07)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/sdeleuze&quot;&gt;S?bastien Deleuze (sdeleuze)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/sobychacko&quot;&gt;Soby Chacko (sobychacko)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/cowboysj&quot;&gt;Sujin Kim (cowboysj)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/TheovanKraay&quot;&gt;Theo van Kraay (TheovanKraay)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ThomasVitale&quot;&gt;Thomas Vitale (ThomasVitale)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/timosalm&quot;&gt;Timo Salm (timosalm)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/making&quot;&gt;Toshiaki Maki (making)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/VictorZZZZ&quot;&gt;Victor Zalevski (VictorZZZZ)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/csuwl&quot;&gt;Wang Lei (csuwl)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/zhaojy01&quot;&gt;Zhao Jianying (zhaojy01)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/cycle2zhou&quot;&gt;Zhou Bo (cycle2zhou)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;roadmap&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#roadmap&quot; aria-label=&quot;roadmap permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Roadmap&lt;/h2&gt;
+&lt;p&gt;We are planning to have one more milestone release, 1.0.0 M5 targeted for late December that focuses on design issues, for example returning more information in the ChatResponse, overhaul the VectorStore API to add/delete and support different query types, unify the API styles of various builders, and more.   Then in January we will make a 1.0.0 RC1 release followed quickly by a 1.0.0 GA release.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Spring Integration 6.4 Goes GA and 6.3.6 & 6.2.11 Available]]></title><link>https://spring.io/blog/2024/11/20/spring-integration-6-4-goes-ga</link><guid isPermaLink="true">https://spring.io/blog/2024/11/20/spring-integration-6-4-goes-ga</guid><dc:creator><![CDATA[artembilan]]></dc:creator><pubDate>Wed, 20 Nov 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;On behalf of the team and everyone who contributed, I am pleased to announce the General Availability for Spring Integration &lt;code&gt;6.4.0&lt;/code&gt; generation.&lt;/p&gt;
+&lt;p&gt;In addition the regular bug fixes and dependency upgrades were release as Spring Integration &lt;code&gt;6.3.6&lt;/code&gt; and &lt;code&gt;6.2.11&lt;/code&gt;.
+The &lt;code&gt;6.2.11&lt;/code&gt; is the last Open Source release.
+From now on updates to &lt;code&gt;6.2.x&lt;/code&gt; generation are going to be available via Commercial Support only.&lt;/p&gt;
+&lt;p&gt;Along side with bug fixes, dependency upgrades and internal improvements, here are some notable new feature in version &lt;code&gt;6.4&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The new Control Bus interaction model is implemented in the &lt;code&gt;ControlBusCommandRegistry&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A new &lt;code&gt;ControlBusFactoryBean&lt;/code&gt; class is recommended to be used instead of deprecated &lt;code&gt;ExpressionControlBusFactoryBean&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Also, a &lt;code&gt;ControlBusController&lt;/code&gt; (together with an &lt;code&gt;@EnableControlBusController&lt;/code&gt;) is introduced for managing exposed commands by the mentioned &lt;code&gt;ControlBusCommandRegistry&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;The SpEL evaluation infrastructure now supports configuration for &lt;code&gt;IndexAccessor&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;The outbound component &lt;code&gt;ZeroMqMessageHandler&lt;/code&gt; (and respective API) can now bind a TCP port instead of connecting to a given URL.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Essentially, making it working as a server for the port folling regular ZeroMQ patterns;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;DefaultSftpSessionFactory&lt;/code&gt; now exposes a &lt;code&gt;Consumer&amp;#x3C;SshClient&gt;&lt;/code&gt; configurer property to further customize an internal &lt;code&gt;SshClient&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;The Python scripting support has been migrate to GraalVM Polyglot.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now Python 3 language version can be used in your scripts.
+Plus all the benefits from third-party Python libraries;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;RedisLockRegistry&lt;/code&gt; can now be configured with a &lt;code&gt;TaskScheduler&lt;/code&gt; for automatic locks renewal in the store;&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;SourcePollingChannelAdapterSpec&lt;/code&gt; now can be configured with a custom &lt;code&gt;TaskScheduler&lt;/code&gt;, e.g. for some &lt;code&gt;TaskDecorator&lt;/code&gt; use-case;&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;@SpringIntegrationTest&lt;/code&gt; can now be used for test classes hierarchy, including &lt;code&gt;@Nested&lt;/code&gt; configuration;&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;ZipTransformer&lt;/code&gt; now exposes a &lt;code&gt;fileNameGenerator&lt;/code&gt; property to customize a target zip file (and optional zip entry) name generation;&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;BaseMessageBuilder&lt;/code&gt; has been extracted for easier custom &lt;code&gt;MessageBuilderFactory&lt;/code&gt; implementation, e.g. when we would like to mask some sensitive information from message headers whenever the message is logged.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;See &lt;a href=&quot;https://docs.spring.io/spring-integration/reference/6.4/whats-new.html&quot;&gt;What&apos;s New in 6.4&lt;/a&gt; for more details.&lt;/p&gt;
+&lt;p&gt;Also a &lt;a href=&quot;https://github.com/spring-projects/spring-integration/wiki/Spring-Integration-6.3-to-6.4-Migration-Guide&quot;&gt;Migration Guide&lt;/a&gt; contains some breaking changes in this new version.&lt;/p&gt;
+&lt;p&gt;We are looking for any feedback on &lt;code&gt;6.4&lt;/code&gt; to further improve the Framework and your experience for the next &lt;code&gt;6.5&lt;/code&gt; generation planned in May 2025.&lt;/p&gt;
+&lt;p&gt;Cheers,?&lt;br&gt;
+Artem&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://projects.spring.io/spring-integration/&quot;&gt;Project Page&lt;/a&gt; | &lt;a href=&quot;https://github.com/spring-projects/spring-integration/issues&quot;&gt;GitHub Issues&lt;/a&gt; | &lt;a href=&quot;https://github.com/spring-projects/spring-integration/blob/main/CONTRIBUTING.adoc&quot;&gt;Contributing&lt;/a&gt; | &lt;a href=&quot;http://stackoverflow.com/questions/tagged/spring-integration&quot;&gt;Help&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Spring Authorization Server 1.4 goes GA]]></title><link>https://spring.io/blog/2024/11/19/spring-authorization-server-1-4-goes-ga</link><guid isPermaLink="true">https://spring.io/blog/2024/11/19/spring-authorization-server-1-4-goes-ga</guid><dc:creator><![CDATA[jgrandja]]></dc:creator><pubDate>Tue, 19 Nov 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;On behalf of the team and everyone who has contributed, it is my pleasure to announce the release of Spring Authorization Server 1.4.&lt;/p&gt;
 &lt;p&gt;The 1.4 release contains a few noteworthy new features:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Simplified configuring authorization server using &lt;code&gt;HttpSecurity.with()&lt;/code&gt; &lt;a href=&quot;https://github.com/spring-projects/spring-authorization-server/pull/1725&quot;&gt;(gh-1725)&lt;/a&gt;&lt;/li&gt;
@@ -20,180 +338,4 @@
 &lt;p&gt;The patch releases &lt;code&gt;3.2.5&lt;/code&gt; and &lt;code&gt;3.1.10&lt;/code&gt; will be included in the upcoming Spring Boot &lt;code&gt;3.2.12&lt;/code&gt; and &lt;code&gt;3.3.6&lt;/code&gt; releases respectively.&lt;/p&gt;
 &lt;h4 id=&quot;staying-in-touch-with-the-project&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#staying-in-touch-with-the-project&quot; aria-label=&quot;staying in touch with the project permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Staying in touch with the project&lt;/h4&gt;
 &lt;p&gt;Following are the usual avenues where you can engage with the project.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/spring-projects/spring-kafka&quot;&gt;GitHub&lt;/a&gt; | &lt;a href=&quot;https://github.com/spring-projects/spring-kafka/issues&quot;&gt;Issues&lt;/a&gt; | &lt;a href=&quot;https://docs.spring.io/spring-kafka/reference&quot;&gt;Documentation&lt;/a&gt; | &lt;a href=&quot;https://stackoverflow.com/tags/spring-kafka&quot;&gt;Stack Overflow&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[This Week in Spring - November 19th, 2024]]></title><link>https://spring.io/blog/2024/11/19/this-week-in-spring-november-19th-2024</link><guid isPermaLink="true">https://spring.io/blog/2024/11/19/this-week-in-spring-november-19th-2024</guid><dc:creator><![CDATA[joshlong]]></dc:creator><pubDate>Tue, 19 Nov 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Hi, Spring fans! How are you? Can you believe we&apos;re already staring at the end of the month? It&apos;s that time of the year when we see new releases, and the new releases reflect that frenzy! Soon: Spring Boot 3.4.0! Are you updated? Make sure you&apos;re updated!&lt;/p&gt;
-&lt;p&gt;Remember: Spring projects leave open source support after a year. So, roughly, when Spring Boot 3.4.0 drops, Spring Boot 3.2.0 and earlier won&apos;t be supported anymore. If you  want to know where you stand, &lt;a href=&quot;https://spring.io/projects/spring-boot#support&quot;&gt;check the support windows on the various projects&apos; pages&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://spring.io/blog/2024/11/14/spring-framework-6-2-0-available-now&quot;&gt;Spring Framework 6.2.0 available now!&lt;/a&gt; This foundational piece kicks off our release cycle for the season. Remember: we do new releases of Spring Framework and Spring Boot every six months! Spring Framework 6.2 brings new baseline dependencies, removed APIs, tweaked &lt;code&gt;Priority&lt;/code&gt; behavior in the core container, deeper generic type matching, &lt;code&gt;@Fallback&lt;/code&gt; beans, SpEL updates, smarter resource loading in web applications, messaging updates for JMS message listener containers, improved testing support, support for escaping property placeholder expressions, a new background initialization mode for individual beans, enhanced indexing support in SpEL, bean overriding in tests with &lt;code&gt;@TestBean&lt;/code&gt;, &lt;code&gt;@MockitoBean&lt;/code&gt;, and &lt;code&gt;@MockitoSpyBean&lt;/code&gt;, AssertJ with MockMvc, dynamic property registration in a test&apos;s &lt;code&gt;ApplicationContext&lt;/code&gt;, constructor data binding to lists, maps, and arrays, data binding from headers, fragment rendering, content negotiation for &lt;code&gt;@ExceptionHandler&lt;/code&gt; methods, URL parsing, &lt;code&gt;UrlHandlerFilter&lt;/code&gt; for trailing slash match, easier reflection hint registration for native applications, and much more! It&apos;s jam-packed with good stuff so check it out!&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://spring.io/blog/2024/11/19/spring-security-6-4-goes-ga&quot;&gt;Spring Security 6.4.0 has gone GA&lt;/a&gt;! It includes new features including passkeys, one-time tokens, simplified OAuth configuration, refreshable SAML 2.0 parties, and new method security annotations and capabilities.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://spring.io/blog/2024/11/19/spring-ldap-2-4-4-3-2-8-are-now-available&quot;&gt;Spring LDAP 2.4.4 and 3.2.8 are now available&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://spring.io/blog/2024/11/19/spring-security-6-2-8-6-3-5-are-now-available&quot;&gt;Spring Security 6.2.8 and 6.3.5 are now available&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://spring.io/blog/2024/11/14/spring-framework-6-1-15-available-now&quot;&gt;Spring Framework 6.1.15 available now&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://spring.io/blog/2024/11/14/spring-framework-6-2-0-available-now&quot;&gt;Spring Framework 6.2.0 available now&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;In last week&apos;s installment of &lt;em&gt;A Bootiful Podcast&lt;/em&gt;, I talk to &lt;a href=&quot;https://spring.io/blog/2024/11/14/a-bootiful-podcast-ken-sipe&quot;&gt;engineer, CTO, teacher, and pilot Ken Sipe&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://spring.io/blog/2024/11/15/spring-framework-cve-2024-38828-published&quot;&gt;Spring Framework CVE-2024-38828&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://spring.io/blog/2024/11/15/spring-data-2024-1-goes-ga&quot;&gt;Spring Data 2024.1 goes GA&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://spring.io/blog/2024/11/15/spring-data-2024-0-6-and-2023-1-12-released&quot;&gt;Spring Data 2024.0.6 and 2023.1.12 released&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://spring.io/blog/2024/11/18/spring-for-apache-pulsar-1-2-0-is-now-available&quot;&gt;Spring for Apache Pulsar 1.2.0 is now available&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://spring.io/blog/2024/11/18/spring-for-apache-pulsar-1-0-12-and-1-1-6-are-now-available&quot;&gt;Spring for Apache Pulsar 1.0.12 and 1.1.6 available now&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;I love this GitHub resource linking to curated &lt;a href=&quot;https://github.com/lutzh/awesome-event-driven-architecture&quot;&gt;resources on event-driven architecture&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;I love this video: &lt;a href=&quot;https://www.youtube.com/watch?v=u5foQULTxHM&quot;&gt;Spring Boot testing: Zero to Hero by Daniel Garnier-Moiroux&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;New from Spring team member Sam Brannen: a &lt;a href=&quot;https://github.com/spring-projects/spring-framework/wiki/Date-and-Time-Formatting-with-JDK-20-and-higher&quot;&gt;wiki page on date and time formatting with JDK 20 and higher&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;I love this from Cornelia Davis, a former Pivot and former CTO at Weaveworks and an all-around legend that looks &lt;a href=&quot;https://blog.corneliadavis.com/spring-boot-and-temporal-3840114fc341&quot;&gt;at Spring Boot and Temporal&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Not related to Spring, per se, but super interesting: &lt;a href=&quot;https://netflixtechblog.com/netflixs-distributed-counter-abstraction-8d0c45eb66b2?gi=445c4c94154f&quot;&gt;Netflix&apos;s distributed counter abstraction&lt;/a&gt;. Sometimes it&apos;s hard to believe the level of sophistication in something as simple as a monotonically incrementing number, at scale.&lt;/li&gt;
-&lt;li&gt;Nice blog on using &lt;a href=&quot;https://mydeveloperplanet.com/2019/06/19/google-cloud-vision-with-spring-boot/&quot;&gt;Google Cloud&apos;s Vision support with Spring Boot&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/micrometer-metrics/micrometer/releases/tag/v1.13.7&quot;&gt;Micrometer 1.13.7 is here!&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;My friend Dashaun and I did this video reacting to &lt;a href=&quot;https://www.youtube.com/live/WZSWA4XmkXo&quot;&gt;&quot;How we fell out of love with Java&quot;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Why Spring AI: The Seamless Path to Generative AI]]></title><link>https://spring.io/blog/2024/11/19/why-spring-ai</link><guid isPermaLink="true">https://spring.io/blog/2024/11/19/why-spring-ai</guid><dc:creator><![CDATA[oded-shopen]]></dc:creator><pubDate>Tue, 19 Nov 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;why-spring-ai-the-seamless-path-for-spring-developers-to-the-world-of-generative-ai&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#why-spring-ai-the-seamless-path-for-spring-developers-to-the-world-of-generative-ai&quot; aria-label=&quot;why spring ai the seamless path for spring developers to the world of generative ai permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Why Spring AI: The Seamless Path for Spring Developers to the World of Generative AI&lt;/h1&gt;
-&lt;h4 id=&quot;intro&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#intro&quot; aria-label=&quot;intro permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Intro&lt;/h4&gt;
-&lt;p&gt;As a Java developer exploring the world of generative AI, you¡¯re probably aware of several frameworks that promise to make AI integration easy. I believe &lt;strong&gt;Spring AI&lt;/strong&gt; stands out as the natural choice, especially for developers already working within the &lt;strong&gt;Spring ecosystem&lt;/strong&gt;. Built on the same foundation as &lt;strong&gt;Spring Boot&lt;/strong&gt; and &lt;strong&gt;Spring Data&lt;/strong&gt;, Spring AI makes adding AI capabilities to your applications &lt;strong&gt;seamless&lt;/strong&gt; and intuitive, without requiring you to learn an entirely new set of paradigms.&lt;/p&gt;
-&lt;h4 id=&quot;seamless-integration-with-the-spring-ecosystem&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#seamless-integration-with-the-spring-ecosystem&quot; aria-label=&quot;seamless integration with the spring ecosystem permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Seamless Integration with the Spring Ecosystem&lt;/h4&gt;
-&lt;p&gt;One of Spring AI¡¯s most significant advantages is its &lt;strong&gt;deep integration&lt;/strong&gt; with the Spring ecosystem. If you¡¯re already familiar with developing Spring Boot applications, Spring AI will feel like an extension of what you already know. The same concepts that drive &lt;strong&gt;Spring Data&lt;/strong&gt;?such as dependency injection, annotations, and clean abstractions?apply to Spring AI as well. This consistency means you can dive into AI without needing to rethink how you develop your application.&lt;/p&gt;
-&lt;p&gt;Unlike some tools, Spring AI doesn¡¯t require complex configurations or workflow setups to get started. It fits neatly alongside your existing codebase, allowing you to &lt;strong&gt;reuse your existing beans, services, and repositories&lt;/strong&gt;. Instead of bolting on an external AI platform, Spring AI integrates directly with the &lt;strong&gt;business logic&lt;/strong&gt; and &lt;strong&gt;enterprise services&lt;/strong&gt; you¡¯ve already built, leveraging your &lt;strong&gt;investment&lt;/strong&gt; in the Spring ecosystem.&lt;/p&gt;
-&lt;h4 id=&quot;simplifying-ai-for-enterprise-applications&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#simplifying-ai-for-enterprise-applications&quot; aria-label=&quot;simplifying ai for enterprise applications permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Simplifying AI for Enterprise Applications&lt;/h4&gt;
-&lt;p&gt;Spring AI focuses on simplifying AI operations for &lt;strong&gt;enterprise-grade applications&lt;/strong&gt;. It¡¯s ideal for developers who need to add straightforward AI features?like text generation, embeddings, and function calling?into their business applications. The beauty of Spring AI lies in its simplicity: you get the power of generative AI without the overhead of managing complex workflows or orchestrating multi-step processes. For most enterprise use cases, where AI serves to &lt;strong&gt;enhance&lt;/strong&gt; features rather than power entire workflows, Spring AI delivers exactly what¡¯s needed.&lt;/p&gt;
-&lt;h4 id=&quot;vector-store-integration-extending-springs-data-handling-capabilities&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#vector-store-integration-extending-springs-data-handling-capabilities&quot; aria-label=&quot;vector store integration extending springs data handling capabilities permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Vector Store Integration: Extending Spring&apos;s Data Handling Capabilities&lt;/h4&gt;
-&lt;p&gt;Another key strength of Spring AI is its &lt;strong&gt;integration with vector stores&lt;/strong&gt;. Whether you¡¯re using Postgres with pgVector, Redis, or other vector-capable databases, Spring AI extends Spring¡¯s well-known capabilities to handle &lt;strong&gt;vector embeddings&lt;/strong&gt; and other AI-driven data storage needs.&lt;/p&gt;
-&lt;p&gt;Spring AI makes it incredibly easy to &lt;strong&gt;switch between different vector store implementations&lt;/strong&gt;. Using the same &lt;strong&gt;dependency injection&lt;/strong&gt; patterns familiar to Spring developers, you can swap out one vector store for another simply by changing a Spring Boot Starter dependency?without touching your core application logic. This flexibility is a significant advantage for developers building AI-enhanced applications that require scalable, efficient storage and retrieval of embeddings or other AI-generated data.&lt;/p&gt;
-&lt;p&gt;Embedding source data into a vector store is a powerful capability, but how do you handle different data structures before embedding? With Spring AI, you have access to ready-to-use document readers that allow you to process various formats, including PDF, Markdown, Microsoft Word and PowerPoint documents, HTML, and more. The Document Reader feature ensures that you can work with a wide variety of source formats. If a particular format isn&apos;t supported, creating your own implementation is straightforward.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://static.spring.io/blog/odedia/20241118/documentreaders.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;vendor-agnostic-metadata-filters&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#vendor-agnostic-metadata-filters&quot; aria-label=&quot;vendor agnostic metadata filters permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Vendor-Agnostic Metadata Filters&lt;/h4&gt;
-&lt;p&gt;One of the standout features of &lt;strong&gt;Spring AI&lt;/strong&gt; is its support for &lt;strong&gt;metadata filtering on embeddings&lt;/strong&gt;, which is agnostic to the underlying vector store implementation. In typical RAG (Retrieval-Augmented Generation)-based applications, a &lt;strong&gt;similarity search&lt;/strong&gt; is performed on a vector store, calculating a distance metric (e.g., cosine similarity) between a query and each data point in the dataset. While this approach can be manageable with smaller datasets, it becomes increasingly challenging as the volume of data grows. To address this, vector stores implement various performance-enhancing algorithms, such Approximate Nearest Neighbor (ANN), Locality-Sensitive Hashing (LSH), or Hierarchical Navigable Small World (HNSW).&lt;/p&gt;
-&lt;p&gt;To further address this challenge, an additional effective strategy is to &lt;strong&gt;reduce the amount of data to be queried&lt;/strong&gt; before performing the similarity search in the first place. For instance, if you&apos;re only interested in customers located in Boston, you can filter the dataset down to just the customers who live there. This reduction process is known as &lt;strong&gt;metadata filtering&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Many vector stores provide their own implementations of metadata filtering, each with its strengths and limitations. However, &lt;strong&gt;Spring AI&lt;/strong&gt; offers a vendor-neutral solution that bridges the gap between various vector stores. This capability is particularly valuable in enterprise applications where semantics alone may not suffice, and certain Personal Identifiable Information (PII) data must be excluded from a similarity search. By leveraging metadata filtering, the similarity search can be performed only on the relevant subset of documents, rather than scanning the entire dataset.&lt;/p&gt;
-&lt;p&gt;Here is a simple example, with more detailed information available in the &lt;a href=&quot;https://docs.spring.io/spring-ai/reference/api/vectordbs.html#metadata-filters&quot;&gt;Spring AI reference documentation&lt;/a&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;public void example() {
-    // Assume we have a large dataset of customers.
-    // Embedding the data is computationally expensive 
-    // but it is typically a one-time / ETL process
-    List&amp;#x3C;Document&gt; allMyCustomers = new ArrayList&amp;#x3C;&gt;();
-    allMyCustomers.add(new Document(&quot;&quot;&quot;
-            {
-              &quot;customerId&quot;: 12345,
-              &quot;name&quot;: &quot;John Doe&quot;,
-              &quot;email&quot;: &quot;john.doe@example.com&quot;,
-              &quot;phone&quot;: &quot;+1234567890&quot;,
-              &quot;address&quot;: &quot;123 Main St, Boston, MA&quot;
-            }
-            &quot;&quot;&quot;, Map.of(&quot;city&quot;, &quot;Boston&quot;))); // Metadata filter!
-    // Add more customers...
-    allMyCustomers.add(...);
-    
-    // Add all embedded documents and their 
-    // associated metadata to the vector store
-    vectorStore.add(allMyCustomers);
-
-    // Prepare a search query, for example: 
-    // &quot;Which customers are named John?&quot;
-    SearchRequest searchRequest = 
-       SearchRequest.query(&quot;Which customers are named John?&quot;);
-
-    // This similarity search is computationally intensive 
-    List&amp;#x3C;Document&gt; results = vectorStore.similaritySearch(
-            searchRequest.withTopK(5)
-                         .withSimilarityThresholdAll());
-
-    // Instead, we&apos;ll first filter by city to reduce the dataset size,
-    // then perform the similarity search on the filtered results
-    results = vectorStore.similaritySearch(
-            searchRequest.withTopK(5)
-                         .withSimilarityThresholdAll()
-                         .withFilterExpression(&quot;city == &apos;Boston&apos;&quot;));
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&quot;the-magic-of-function-calling-a-new-paradigm&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#the-magic-of-function-calling-a-new-paradigm&quot; aria-label=&quot;the magic of function calling a new paradigm permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;The Magic of Function Calling: A New Paradigm&lt;/h4&gt;
-&lt;p&gt;One of Spring AI¡¯s standout features is its &lt;strong&gt;function-calling capability&lt;/strong&gt;, which simplifies AI interaction in enterprise applications by solving its biggest challenge: integrating with your own APIs!&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://static.spring.io/blog/odedia/20241118/e645c742-f121-49c6-85da-e5a84c27ece9.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;I recently read a LinkedIn post by Jonathan Schneider that caught my attention. He wrote that function calling to Retrieval-Augmented Generation (RAG) is like what IoC was to Java development. IoC allowed developers to focus on business logic while Spring managed object creation and dependency wiring. In a similar fashion, &lt;strong&gt;function calling&lt;/strong&gt; in Spring AI allows developers to focus on what their functions do, while the &lt;strong&gt;Large Language Model (LLM)&lt;/strong&gt; takes care of the complex interactions behind the scenes.&lt;/p&gt;
-&lt;p&gt;You describe what your function does in &lt;strong&gt;natural language&lt;/strong&gt;, and Spring AI ensures that the LLM understands and executes it when needed. This dramatically reduces the amount of boilerplate code typically required for interacting with AI models, letting you focus on building features rather than managing the intricacies of AI processes.&lt;/p&gt;
-&lt;p&gt;Here¡¯s a simple example from the &lt;a href=&quot;https://docs.spring.io/spring-ai/reference/api/chat/functions/ollama-chat-functions.html#page-title&quot;&gt;Spring AI Reference documentation&lt;/a&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;@Configuration
-static class Config {
-	@Bean
-	@Description(&quot;Get the current weather in location&quot;)
-	public Function&amp;#x3C;WeatherService.Request, WeatherService.Response&gt; currentWeather() {
-		return new MockWeatherService();
-	}
-
-}
-public class WeatherService implements Function&amp;#x3C;Request, Response&gt; {
-
-	public enum Unit { C, F }
-	public record Request(String location, Unit unit) {}
-	public record Response(double temp, Unit unit) {}
-
-	public Response apply(Request request) {
-		// Logic goes here!
-	}
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;There are no AI models trained to provide real-time weather data for a specific location at this exact moment. As a result, an LLM might respond that it doesn&apos;t know the answer?or worse, it could return a hallucinated response.&lt;/p&gt;
-&lt;p&gt;However, by registering a function like the one above, Spring AI allows the LLM to infer from the &lt;code&gt;@Description&lt;/code&gt; annotation that this function can provide real-time weather data. The LLM can then construct a request in the correct format for &lt;code&gt;WeatherService.Request&lt;/code&gt;, based on the user&apos;s input. For instance, if a user asks, &quot;What¡¯s the weather in Boston?&quot;, the LLM would automatically populate the &lt;code&gt;Request&lt;/code&gt; object with the location and unit, ask Spring AI to invoke the function, retrieve the actual weather data from the &lt;code&gt;WeatherService&lt;/code&gt;, and then format a human-readable response for the user based on that data.&lt;/p&gt;
-&lt;p&gt;Here¡¯s a step-by-step breakdown of the call flow:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://static.spring.io/blog/odedia/20241118/829ed3a4-7611-4cb1-a1b0-9fd47bd3949c.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;While vector stores &lt;strong&gt;pre-process&lt;/strong&gt; your data by embedding it in a format that the LLM can understand, function calling enables the LLM to interact with your existing transactional APIs in &lt;strong&gt;real-time&lt;/strong&gt;, allowing it to generate meaningful responses as needed.&lt;/p&gt;
-&lt;h4 id=&quot;handling-cross-cutting-concerns-with-spring-ai-advisors&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#handling-cross-cutting-concerns-with-spring-ai-advisors&quot; aria-label=&quot;handling cross cutting concerns with spring ai advisors permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Handling Cross-Cutting Concerns with Spring AI Advisors&lt;/h4&gt;
-&lt;p&gt;Spring AI introduces &lt;strong&gt;Advisors&lt;/strong&gt;, a powerful mechanism for handling cross-cutting concerns in AI applications. If you¡¯re familiar with &lt;a href=&quot;https://docs.spring.io/spring-framework/reference/core/aop.html&quot;&gt;Aspect-Oriented Programming (AOP) interceptors&lt;/a&gt;, or &lt;a href=&quot;https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/interceptors.html&quot;&gt;Spring MVC Interceptors&lt;/a&gt;, the concept is similar. However, recognizing that not all developers may be familiar with these terms, the Spring AI team chose to use &quot;Advisor&quot; to emphasize its purpose?enhancing the request/response prompt flow?rather than the technical details of its operation, which involves intercepting requests/responses and applying filters. Advisors simplify the management of tasks such as &lt;strong&gt;logging, message transformations, and chat memory management&lt;/strong&gt;, all while keeping your application code clean and uncluttered.&lt;/p&gt;
-&lt;p&gt;By offloading these routine tasks, Advisors ensure that your application remains focused on &lt;strong&gt;business logic&lt;/strong&gt; while essential AI-related operations run seamlessly in the background. This approach maintains clarity in your codebase while effectively addressing necessary operational concerns.&lt;/p&gt;
-&lt;p&gt;Here¡¯s a simple example:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;this.chatClient = builder
-    .defaultAdvisors(
-            new MessageChatMemoryAdvisor(chatMemory), 
-            new SimpleLoggerAdvisor())
-    .build();
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This chat client integrates two advisors: a memory advisor, which appends previous user prompts to the current message for context and continuity, and a logging advisor, which captures both the request and response to and from the LLM, and outputs them to the application¡¯s log, for effective troubleshooting.&lt;/p&gt;
-&lt;h4 id=&quot;handling-model-quirks-seamlessly&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#handling-model-quirks-seamlessly&quot; aria-label=&quot;handling model quirks seamlessly permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Handling Model Quirks Seamlessly&lt;/h4&gt;
-&lt;p&gt;One challenge that often arises when working with generative AI models is that each model has its own set of quirks. For example, asking for a structured response?such as JSON?from a Large Language Model is not as straightforward as it may seem. LLMs are trained to generate conversational text, and often they love to &quot;chat&quot; in a more human-like manner. This can lead to unpredictable or overly verbose outputs, which aren&apos;t ideal when you¡¯re expecting a machine-readable format.&lt;/p&gt;
-&lt;p&gt;Spring AI abstracts away these nuances for you. It automatically handles these variations by appending the appropriate user prompts or instructions depending on the specific LLM in use. So, whether you&apos;re working with OpenAI&apos;s GPT4-o, Anthropic¡¯s Claude, or a different LLM, Spring AI ensures the response you receive is in the desired structure. This capability eliminates the need for trial-and-error prompt engineering on the developer¡¯s part, allowing you to focus on leveraging AI instead of wrestling with its quirks.&lt;/p&gt;
-&lt;p&gt;Here¡¯s an example from Spring AI¡¯s &lt;code&gt;BeanOutputConverter&lt;/code&gt; implementation, designed to retrieve a response from the LLM in JSON format that adheres to the schema of a given data class. Notice how detailed and specific the prompt to the LLM needs to be to achieve the desired result:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;	@Override
-	public String getFormat() {
-		String template = &quot;&quot;&quot;
-				Your response should be in JSON format.
-				Do not include any explanations, only provide a RFC8259 compliant JSON response following this format without deviation.
-				Do not include markdown code blocks in your response.
-				Remove the ```json markdown from the output.
-				Here is the JSON Schema instance your output must adhere to:
-				```%s```
-				&quot;&quot;&quot;;
-		return String.format(template, this.jsonSchema);
-	}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Spring AI does the heavy lifting so you don¡¯t have to.&lt;/p&gt;
-&lt;h4 id=&quot;built-in-observability-for-ai-applications&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#built-in-observability-for-ai-applications&quot; aria-label=&quot;built in observability for ai applications permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Built-In Observability for AI Applications&lt;/h4&gt;
-&lt;p&gt;Observability is crucial in any enterprise application, and applications enhanced with generative AI are no exception. Spring AI offers built-in observability features, enabling seamless monitoring of your AI services&apos; health and performance. This includes comprehensive metrics, tracing, and logging for end-to-end visibility into your generative AI application. This capability highlights once again the power of an integrated solution like Spring, since observability features are enabled by &lt;a href=&quot;https://micrometer.io/&quot;&gt;micrometer&lt;/a&gt;, just like in other Spring projects:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://static.spring.io/blog/odedia/20241118/grafana-spring-ai.png&quot; alt=&quot;Grafana Dashboard&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://static.spring.io/blog/odedia/20241118/tempo-spring-ai.png&quot; alt=&quot;Tempo Dashboard&quot;&gt;&lt;/p&gt;
-&lt;p&gt;With Spring AI, you gain insights into critical metrics like token usage rate, which is essential for managing cost when interacting with models that charge based on the number of tokens processed. Additionally, you can monitor vector store latency, error rates, and even trace how requests flow through your AI-enhanced services. This level of observability ensures that you can quickly identify performance bottlenecks or potential issues before they impact your application, just like you&apos;re accustomed to doing with other Spring-based services.&lt;/p&gt;
-&lt;h4 id=&quot;simplified-ab-testing-for-optimal-model-selection&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#simplified-ab-testing-for-optimal-model-selection&quot; aria-label=&quot;simplified ab testing for optimal model selection permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Simplified A/B Testing for Optimal Model Selection&lt;/h4&gt;
-&lt;p&gt;Another significant advantage of using Spring AI is the ease with which you can conduct A/B testing between different LLM providers. In the quest for the best balance of cost and quality of response, being able to compare multiple models is invaluable.&lt;/p&gt;
-&lt;p&gt;With Spring AI, you can easily switch between various LLMs simply by replacing the Spring Boot Starter dependency and changing a couple of lines in a property file. This straightforward approach allows you to evaluate the performance of different models without extensive reconfiguration or coding overhead. Whether you&apos;re assessing accuracy, response time, or cost-efficiency, Spring AI provides the tools to facilitate these comparisons seamlessly.&lt;/p&gt;
-&lt;p&gt;By integrating A/B testing directly into your workflow, you can make data-driven decisions about which LLM provider best suits your application&apos;s needs. This capability not only enhances the overall effectiveness of your AI implementations but also allows for continuous optimization as new models and capabilities emerge in the generative AI landscape.&lt;/p&gt;
-&lt;h4 id=&quot;why-choose-spring-ai&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#why-choose-spring-ai&quot; aria-label=&quot;why choose spring ai permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;strong&gt;Why Choose Spring AI?&lt;/strong&gt;&lt;/h4&gt;
-&lt;p&gt;Spring AI is purpose-built to provide Java developers with a seamless and efficient way to integrate AI into their applications. It¡¯s not just about adding AI capabilities?it¡¯s about doing so in a way that naturally fits into your existing system. Applying generative AI to applications is primarily an integration challenge, and this is where the Spring framework excels. Spring AI is a natural extension of the Spring ecosystem, designed to handle the complexities of enterprise application integration effortlessly.&lt;/p&gt;
-&lt;p&gt;If your goal is to enhance enterprise applications with generative models, function calling, and vector embeddings, Spring AI stands as the ideal choice. Its deep integration with the Spring ecosystem, along with access to a broad selection of large language models and vector stores, makes it both powerful and straightforward for AI development. Perfect for incorporating AI alongside existing business logic, it eliminates the complexity of managing multi-step workflows or chaining models.&lt;/p&gt;
-&lt;p&gt;To recap, some standout advantages of Spring AI are:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Seamless Integration&lt;/strong&gt;: Embed AI capabilities within existing Spring applications effortlessly.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Built for RAG&lt;/strong&gt;: Simplifies the process of embedding data and running similarity searches, while supporting powerful metadata filters.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Function Calling&lt;/strong&gt;: Enable real-time interactions with transactional APIs.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Advisors:&lt;/strong&gt; Handle cross-cutting concerns with the built-in advisors, or write your own when needed.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Vendor-Agnostic&lt;/strong&gt;: Utilize various vector stores and LLM providers without being locked into a specific solution, providing flexibility in your data and model management.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;A/B Testing&lt;/strong&gt;: Easily conduct A/B testing to optimize AI performance.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Built-in Observability&lt;/strong&gt;: Access monitoring, logging and tracing features for greater transparency.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;By choosing Spring AI, you empower your enterprise applications with advanced AI capabilities, driving innovation and enhancing user experience.&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;&lt;a href=&quot;https://github.com/spring-projects/spring-kafka&quot;&gt;GitHub&lt;/a&gt; | &lt;a href=&quot;https://github.com/spring-projects/spring-kafka/issues&quot;&gt;Issues&lt;/a&gt; | &lt;a href=&quot;https://docs.spring.io/spring-kafka/reference&quot;&gt;Documentation&lt;/a&gt; | &lt;a href=&quot;https://stackoverflow.com/tags/spring-kafka&quot;&gt;Stack Overflow&lt;/a&gt;&lt;/p&gt;</content:encoded></item></channel></rss>

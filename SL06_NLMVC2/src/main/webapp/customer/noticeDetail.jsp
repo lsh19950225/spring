@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,6 +9,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<title>index</title>
 		<link href="../css/customer.css" type="text/css" rel="stylesheet" />
+		<script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
 	</head>
 	<body>
 		<div id="header">
@@ -120,13 +122,13 @@
 								<a href="">flag.png</a>
 							</dd>
 						</dl>
-
-						<div class="article-content" >${ notice.content }</div>
+						<!-- c:out : 태그가 아닌 글로 인식하게 해준다. -->
+						<div class="article-content" ><c:out value="${ notice.content }"></c:out></div>
 					</div>
 					<p class="article-comment margin-small">
 						<a class="btn-list button" href="notice.htm">목록</a>						
-						<a class="btn-edit button" href="noticeEdit.htm">수정</a>
-						<a class="btn-del button" href="noticeDel.htm">삭제</a>
+						<a class="btn-edit button" href="noticeEdit.htm?seq=${ notice.seq }">수정</a>
+						<a id="deleteBtn" class="btn-del button" href="noticeDel.htm?seq=${ notice.seq }">삭제</a>
 					</p>
 					<div class="margin-small" style="border-top: 1px solid #dfdfdf;">
 						<dl class="article-detail-row">
@@ -198,4 +200,13 @@
 			</div>
 		</div>
 	</body>
+<script>
+	$(".btn-del").on("click", function(event) {
+	    if (confirm("정말 삭제할거니?")) {
+	    } else {
+	        event.preventDefault();
+	    } // if else
+	});
+</script>
 </html>
+

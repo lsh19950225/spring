@@ -7,3 +7,15 @@
 	
 	3) servlet-context.xml
 		<bean> 빈생성 + DI -> @어노테이션 으로 자동 처리로 구현한다.
+
+* 공지사항 글쓰기
+<a class="btn-write button" href="noticeReg.htm">글쓰기</a>
+-> CustomerController.java
+	ㄴ 1) 컨트롤러 메서드 추가
+	ㄴ noticeReg.jsp 포워딩
+
+* 공지사항 글수정
+<a class="btn-edit button" href="noticeEdit.htm?seq=${ notice.seq }">수정</a>
+-> CustomerController.java
+	ㄴ 1) 컨트롤러 메서드 추가
+	ㄴ noticeDetail.htm

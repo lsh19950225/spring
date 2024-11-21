@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.doit.ik.domain.NoticeVO;
 import org.doit.ik.persistence.NoticeDao;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,6 +25,65 @@ public class CustomerController {
 	
 	@Autowired // (required = false)
 	private NoticeDao noticeDao;
+	
+	// 게시글 삭제
+	@GetMapping("noticeDel.htm")
+	public String noticeDelete (@RequestParam("seq") String seq) throws ClassNotFoundException, SQLException {
+		int rowCount = this.noticeDao.delete(seq);
+		if (rowCount == 1) {
+			// 글목록 페이지 이동
+			return "redirect:notice.htm";
+		} else {
+			// 글쓰기 페이지 이동
+			return "redirect:noticeDetail.htm?seq="+seq+"&error";
+		} // if else
+	} //
+	
+	// <!-- http://localhost/customer/noticeEdit.htm?seq=6 -->
+	// <input type="submit" value="수정" class="btn-save button" />
+	@PostMapping("noticeEdit.htm")
+	public String noticeEdit (NoticeVO notice) throws ClassNotFoundException, SQLException {
+		int rowCount = this.noticeDao.update(notice);
+		if (rowCount == 1) {
+			// 글목록 페이지 이동
+			return "redirect:noticeDetail.htm?seq=" + notice.getSeq();			
+		} else {
+			// 글쓰기 페이지 이동 포워딩
+			return "redirect:notice.htm";
+		} // if else
+	} //
+	
+	// <a class="btn-edit button" href="noticeEdit.htm?seq=${ notice.seq }">수정</a>
+	@GetMapping("noticeEdit.htm")
+	public String noticeEdit (@RequestParam("seq") String seq, Model model) throws ClassNotFoundException, SQLException {
+		NoticeVO notice = this.noticeDao.getNotice(seq);
+		model.addAttribute("notice", notice);
+		return "noticeEdit.jsp";
+	} //
+	
+	
+	// <input class="btn-save button" type="submit" value="저장" />
+	// <form action="" method="post">
+	// 커맨드객체 : get set 만들고 파라미터 이름과 VO 이름과 똑같아야된다.
+	@PostMapping(value="/noticeReg.htm")
+	public String noticeReg (NoticeVO notice) throws ClassNotFoundException, SQLException {
+		int rowCount = this.noticeDao.insert(notice);
+		if (rowCount == 1) {
+			// 글목록 페이지 이동
+			return "redirect:notice.htm";			
+		} else {
+			// 글쓰기 페이지 이동 포워딩
+			return "noticeReg.htm";
+		} // if else
+	} //
+	
+	// <a class="btn-write button" href="noticeReg.htm">글쓰기</a>
+	@GetMapping("/noticeReg.htm")
+	public String noticeReg (HttpSession session) {
+		// session."auth"
+		// 스프링 시큐리티(보안) : 인증 + 권한 처리
+		return "noticeReg.jsp";
+	} //
 	
 	@GetMapping("/noticeDetail.htm")
 	public String noticeDetail(Model model

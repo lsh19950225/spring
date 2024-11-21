@@ -280,3 +280,174 @@
 11월 20, 2024 15:40:11.827     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
 11월 20, 2024 15:40:11.827     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
 11월 20, 2024 16:05:18.844 [16872:3932:1120/160518.843:ERROR:interface_endpoint_client.cc(725)] Message 1 rejected by interface blink.mojom.WidgetHost
+
+11월 21, 2024 09:04:15.223 NEW SESSION
+11월 21, 2024 09:04:15.223 [10964:14292:1121/090415.222:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 09:04:15.546 Created TensorFlow Lite XNNPACK delegate for CPU.
+11월 21, 2024 09:04:42.796 [10964:14292:1121/090442.796:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 09:05:29.448 [10964:14292:1121/090529.447:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 09:07:09.352 [10964:14292:1121/090709.352:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 09:09:51.369 [10964:14292:1121/090951.369:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 09:13:02.921 [10964:10904:1121/091302.921:ERROR:interface_endpoint_client.cc(725)] Message 1 rejected by interface blink.mojom.WidgetHost
+11월 21, 2024 09:15:18.774 [10964:14292:1121/091518.774:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 09:35:48.693 [10964:10904:1121/093548.692:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+11월 21, 2024 09:35:48.693     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+11월 21, 2024 09:35:48.693     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+11월 21, 2024 09:35:48.693     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+11월 21, 2024 09:35:48.693     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+11월 21, 2024 09:35:48.693     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+11월 21, 2024 09:35:48.694     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+11월 21, 2024 10:05:07.314 [10964:10904:1121/100507.313:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+11월 21, 2024 10:05:07.315     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+11월 21, 2024 10:05:07.315     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+11월 21, 2024 10:05:07.315     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+11월 21, 2024 10:05:07.315     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+11월 21, 2024 10:05:07.315     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+11월 21, 2024 10:05:07.315     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+11월 21, 2024 10:46:14.66 [10964:10904:1121/104614.066:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+11월 21, 2024 10:46:14.66     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+11월 21, 2024 10:46:14.66     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+11월 21, 2024 10:46:14.66     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+11월 21, 2024 10:46:14.66     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+11월 21, 2024 10:46:14.66     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+11월 21, 2024 10:46:14.66     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+11월 21, 2024 10:47:03.349 [10964:10904:1121/104703.349:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+11월 21, 2024 10:47:03.349     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+11월 21, 2024 10:47:03.350     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+11월 21, 2024 10:47:03.350     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+11월 21, 2024 10:47:03.350     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+11월 21, 2024 10:47:03.350     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+11월 21, 2024 10:47:03.350     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+11월 21, 2024 10:50:27.847 [10964:10904:1121/105027.847:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+11월 21, 2024 10:50:27.847     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+11월 21, 2024 10:50:27.847     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+11월 21, 2024 10:50:27.847     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+11월 21, 2024 10:50:27.847     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+11월 21, 2024 10:50:27.847     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+11월 21, 2024 10:50:27.847     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+11월 21, 2024 10:51:35.332 [10964:10904:1121/105135.332:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+11월 21, 2024 10:51:35.332     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+11월 21, 2024 10:51:35.333     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+11월 21, 2024 10:51:35.333     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+11월 21, 2024 10:51:35.333     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+11월 21, 2024 10:51:35.333     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+11월 21, 2024 10:51:35.333     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+11월 21, 2024 10:52:18.254 [10964:10904:1121/105218.253:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+11월 21, 2024 10:52:18.254     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+11월 21, 2024 10:52:18.254     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+11월 21, 2024 10:52:18.254     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+11월 21, 2024 10:52:18.254     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+11월 21, 2024 10:52:18.254     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+11월 21, 2024 10:52:18.255     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+11월 21, 2024 10:52:46.979 [10964:10904:1121/105246.978:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+11월 21, 2024 10:52:46.979     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+11월 21, 2024 10:52:46.979     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+11월 21, 2024 10:52:46.979     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+11월 21, 2024 10:52:46.979     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+11월 21, 2024 10:52:46.979     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+11월 21, 2024 10:52:46.979     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+11월 21, 2024 10:59:21.244 [10964:10904:1121/105921.244:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+11월 21, 2024 10:59:21.244     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+11월 21, 2024 10:59:21.244     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+11월 21, 2024 10:59:21.244     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+11월 21, 2024 10:59:21.244     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+11월 21, 2024 10:59:21.244     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+11월 21, 2024 10:59:21.244     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+11월 21, 2024 11:02:51.829 [10964:10904:1121/110251.829:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+11월 21, 2024 11:02:51.830     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+11월 21, 2024 11:02:51.830     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+11월 21, 2024 11:02:51.830     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+11월 21, 2024 11:02:51.830     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+11월 21, 2024 11:02:51.830     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+11월 21, 2024 11:02:51.830     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+11월 21, 2024 12:34:24.533 [10964:10904:1121/123424.533:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+11월 21, 2024 12:34:24.533     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+11월 21, 2024 12:34:24.533     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+11월 21, 2024 12:34:24.533     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+11월 21, 2024 12:34:24.533     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+11월 21, 2024 12:34:24.534     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+11월 21, 2024 12:34:24.534     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+11월 21, 2024 12:35:27.70 [10964:10904:1121/123527.069:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+11월 21, 2024 12:35:27.70     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+11월 21, 2024 12:35:27.70     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+11월 21, 2024 12:35:27.70     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+11월 21, 2024 12:35:27.70     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+11월 21, 2024 12:35:27.70     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+11월 21, 2024 12:35:27.70     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+11월 21, 2024 12:42:30.296 [10964:10904:1121/124230.295:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+11월 21, 2024 12:42:30.296     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+11월 21, 2024 12:42:30.296     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+11월 21, 2024 12:42:30.296     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+11월 21, 2024 12:42:30.296     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+11월 21, 2024 12:42:30.296     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+11월 21, 2024 12:42:30.296     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+11월 21, 2024 12:44:21.549 [10964:10904:1121/124421.549:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+11월 21, 2024 12:44:21.550     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+11월 21, 2024 12:44:21.550     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+11월 21, 2024 12:44:21.550     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+11월 21, 2024 12:44:21.550     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+11월 21, 2024 12:44:21.550     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+11월 21, 2024 12:44:21.550     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+11월 21, 2024 13:20:06.480 [10964:14292:1121/132006.480:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
+11월 21, 2024 14:53:54.396 [10964:10904:1121/145354.396:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+11월 21, 2024 14:53:54.396     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+11월 21, 2024 14:53:54.397     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+11월 21, 2024 14:53:54.397     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+11월 21, 2024 14:53:54.397     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+11월 21, 2024 14:53:54.397     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+11월 21, 2024 14:53:54.397     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+11월 21, 2024 15:27:04.749 Created TensorFlow Lite XNNPACK delegate for CPU.
+11월 21, 2024 15:27:05.109 [2844:6944:1121/152705.109:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 15:27:31.361 [2844:6944:1121/152731.361:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 15:30:04.38 Created TensorFlow Lite XNNPACK delegate for CPU.
+11월 21, 2024 15:30:04.266 [8660:4128:1121/153004.266:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 15:30:49.296 Created TensorFlow Lite XNNPACK delegate for CPU.
+11월 21, 2024 15:30:49.476 [18104:12164:1121/153049.476:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 15:32:22.663 Created TensorFlow Lite XNNPACK delegate for CPU.
+11월 21, 2024 15:32:22.842 [8572:6916:1121/153222.842:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 15:35:14.238 Created TensorFlow Lite XNNPACK delegate for CPU.
+11월 21, 2024 15:35:14.427 [8184:16864:1121/153514.427:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 15:36:53.225 Created TensorFlow Lite XNNPACK delegate for CPU.
+11월 21, 2024 15:36:53.409 [5620:10988:1121/153653.409:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 15:44:31.748 Created TensorFlow Lite XNNPACK delegate for CPU.
+11월 21, 2024 15:44:31.935 [14532:6852:1121/154431.935:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 15:44:52.969 [14532:6852:1121/154452.969:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 15:45:34.391 [14532:6852:1121/154534.391:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 15:47:23.120 [14532:6852:1121/154723.120:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 15:51:02.496 [14532:6852:1121/155102.496:ERROR:registration_request.cc(291)] Registration response error message: QUOTA_EXCEEDED
+11월 21, 2024 16:05:11.512 [14532:12176:1121/160511.512:ERROR:interface_endpoint_client.cc(725)] Message 1 rejected by interface blink.mojom.WidgetHost
+11월 21, 2024 16:27:56.384 Created TensorFlow Lite XNNPACK delegate for CPU.
+11월 21, 2024 16:27:56.559 [11152:4512:1121/162756.559:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 16:28:24.852 [11152:4512:1121/162824.852:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 16:29:07.287 [11152:4512:1121/162907.287:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 16:29:58.981 [11152:8800:1121/162958.981:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+11월 21, 2024 16:29:58.981     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+11월 21, 2024 16:29:58.981     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+11월 21, 2024 16:29:58.981     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+11월 21, 2024 16:29:58.981     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+11월 21, 2024 16:29:58.982     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+11월 21, 2024 16:29:58.982     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+11월 21, 2024 16:30:32.118 [11152:4512:1121/163032.118:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 16:33:39.638 [11152:4512:1121/163339.638:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 16:39:16.24 [11152:4512:1121/163916.024:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 16:43:00.66 [11152:8800:1121/164300.066:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+11월 21, 2024 16:43:00.66     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+11월 21, 2024 16:43:00.66     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+11월 21, 2024 16:43:00.66     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+11월 21, 2024 16:43:00.66     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+11월 21, 2024 16:43:00.67     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+11월 21, 2024 16:43:00.67     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+11월 21, 2024 16:47:48.58 [11152:8800:1121/164748.057:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+11월 21, 2024 16:47:48.59     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+11월 21, 2024 16:47:48.59     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+11월 21, 2024 16:47:48.59     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+11월 21, 2024 16:47:48.59     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+11월 21, 2024 16:47:48.59     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+11월 21, 2024 16:47:48.59     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+11월 21, 2024 17:07:35.894 Created TensorFlow Lite XNNPACK delegate for CPU.
+11월 21, 2024 17:07:36.176 [18832:1604:1121/170736.175:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 17:07:59.636 [18832:1604:1121/170759.636:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 17:08:40.876 [18832:1604:1121/170840.876:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 17:10:07.751 [18832:1604:1121/171007.751:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 17:13:33.45 [18832:1604:1121/171333.045:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 21, 2024 17:20:02.136 [18832:1604:1121/172002.136:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
