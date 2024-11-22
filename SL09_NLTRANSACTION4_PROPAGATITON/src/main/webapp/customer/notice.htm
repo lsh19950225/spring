@@ -1,0 +1,27 @@
+/customer/notice.htm 요청 url
+
+Chapter 12 스프링 트랜잭션 ***
+
+[전파방식 설명]
+- 트랜잭션 처리를 현재 진행 중에
+	또 다른 트랜잭션 처리를 해야할 경우에
+		어떻게 트랜잭션 처리를 해야할 지 결정하는 속성 or 방법
+
+- [                                                  ] A 트랜잭션
+		[      ] B 트랜잭션 [     ] C
+
+SL09_NLTRANSACTION4_PROPAGATITON
+p511
+
+(***** 중요)
+NoticeDaoImpl
+	ㄴ insertAndPointUpOfMember() T x
+	ㄴ insert() T o test-8 2
+	ㄴ insert() T o test-8:two 3 오류 발생
+
+이유 ? 동일한(같은) NoticeDaoImpl 클래스 내에 있는
+			insertAndPointUpOfMember() 메서드 에서
+				insert() 메서드를 호출하면
+			이 호출 구조로는 AOP 방식으로 트랜잭션 처리가 되지 않는다. 라고 합니다.
+해결 : 클래스를 나눠서 메서드를 구현
+	NoticeDaoImpl.insertAndPointUpOfMember() 를 -> 다른 클래스 ????Service 클래스로 만들어서 분리

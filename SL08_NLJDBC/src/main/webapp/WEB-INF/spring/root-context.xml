@@ -58,5 +58,10 @@
    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
      <property name="dataSource"  ref="dataSource" />
    </bean>
+   
+   <!-- p486 / p484 하단 -->
+   <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+   	<property name="dataSource" ref="dataSource"></property>
+   </bean>
       
 </beans>

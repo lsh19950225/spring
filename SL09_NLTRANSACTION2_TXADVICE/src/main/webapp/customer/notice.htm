@@ -1,0 +1,15 @@
+/customer/notice.htm 요청 url
+
+Chapter 12 스프링 트랜잭션 ***
+선언적 트랜잭션 처리
+p522
+1) wml 설정파일
+	<tx:advice> 태그로 설정하는 방법
+	[ SL09_NLTRANSACTION2_TXADVICE ]
+	
+2) @Transactional 어노테이션 사용해서 처리
+
+[ 트랜잭션 처리 필요 부분 ]
+1. 공지사항 새글 작성( insert )
+2. 작성자		포인트 1증가( update )
+	포인트 3보다 크면 오류 발생시키도록 제약조건을 건다. / 확인을 위해

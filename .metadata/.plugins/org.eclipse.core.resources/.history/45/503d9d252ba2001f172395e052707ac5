@@ -1,9 +1,0 @@
-package org.doit.ik.mapper.scott;
-
-import java.util.ArrayList;
-
-public interface DeptMapper {
-	
-	ArrayList<DeptDTO> selectDept();
-	
-}

@@ -1,341 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Spring]]></title><description><![CDATA[Level up your Java code and explore what Spring can do for you.]]></description><link>https://spring.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 21 Nov 2024 00:34:07 GMT</lastBuildDate><item><title><![CDATA[Spring AI 1.0.0 M4 Release]]></title><link>https://spring.io/blog/2024/11/20/spring-ai-1-0-0-m4-released</link><guid isPermaLink="true">https://spring.io/blog/2024/11/20/spring-ai-1-0-0-m4-released</guid><dc:creator><![CDATA[markpollack]]></dc:creator><pubDate>Wed, 20 Nov 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;We are happy to announce the 1.0.0 Milestone 4 release of Spring AI.&lt;/p&gt;
-&lt;p&gt;This release has squashed most of the reported bugs and brings significant enhancements across various areas.&lt;/p&gt;
-&lt;h2 id=&quot;amazon-bedrock-converse&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#amazon-bedrock-converse&quot; aria-label=&quot;amazon bedrock converse permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Amazon Bedrock Converse&lt;/h2&gt;
-&lt;p&gt;Spring AI now supports the &lt;a href=&quot;https://docs.spring.io/spring-ai/reference/api/bedrock-converse.html&quot;&gt;Amazon Bedrock Converse API&lt;/a&gt;, which provides a unified interface for the AI chat models that Amazon offers. Unlike the older Bedrock Invoke API, Converse introduces exciting new features such as &lt;strong&gt;Tool Calling&lt;/strong&gt; and &lt;strong&gt;Multimodality/Visual capabilities&lt;/strong&gt; (for models that support these features). This makes it a more powerful and versatile option for working with Amazon¡¯s chat models.&lt;/p&gt;
-&lt;p&gt;In many ways, the Converse API serves a role similar to Spring AI itself, offering portability across model APIs but limited to Amazon&apos;s chat models. We recommend transitioning to the Converse module for chat models. Note that embedding models remain unaffected.&lt;/p&gt;
-&lt;p&gt;For details on this new capability, refer to the Spring AI Bedrock Converse documentation. You can also follow &lt;a href=&quot;https://github.com/spring-projects/spring-ai/issues/1758&quot;&gt;upcoming improvements&lt;/a&gt; for future enhancements.  Many thanks to &lt;a href=&quot;https://github.com/maxjiang153&quot;&gt;Max Jiang&lt;/a&gt; for starting this large undertaking.&lt;/p&gt;
-&lt;h2 id=&quot;function-calling-improvements&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#function-calling-improvements&quot; aria-label=&quot;function calling improvements permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Function Calling improvements&lt;/h2&gt;
-&lt;h3 id=&quot;function-types-and-methods&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#function-types-and-methods&quot; aria-label=&quot;function types and methods permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Function Types and Methods&lt;/h3&gt;
-&lt;p&gt;Recent improvements expand support for various Function types and methods through the &lt;code&gt;FunctionCallback&lt;/code&gt; Builder class. This allows invocation of &lt;code&gt;java.util.Function&lt;/code&gt;, &lt;code&gt;Supplier&lt;/code&gt;, and &lt;code&gt;Consumer&lt;/code&gt; interfaces.&lt;/p&gt;
-&lt;h4 id=&quot;basic-function-callback&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#basic-function-callback&quot; aria-label=&quot;basic function callback permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Basic Function Callback&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;FunctionCallback callback = FunctionCallback.builder()
-    .description(&quot;Process a new order&quot;)
-    .function(&quot;processOrder&quot;, (Order order) -&gt; processOrderLogic(order))
-    .inputType(Order.class)
-    .build();
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&quot;using-toolcontext-using-toolcontext&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#using-toolcontext-using-toolcontext&quot; aria-label=&quot;using toolcontext using toolcontext permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Using ToolContext {#using-toolcontext}&lt;/h4&gt;
-&lt;p&gt;Access additional state or context using &lt;code&gt;ToolContext&lt;/code&gt; with &lt;code&gt;BiFunction&amp;#x3C;I, ToolContext, O&gt;&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@Bean
-@Description(&quot;Get the weather in location&quot;)
-public BiFunction&amp;#x3C;WeatherService.Request, ToolContext, WeatherService.Response&gt; weatherFunctionWithContext() {
-    return (request, context) -&gt; new MockWeatherService().apply(request);
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&quot;method-invocation&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#method-invocation&quot; aria-label=&quot;method invocation permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Method Invocation&lt;/h4&gt;
-&lt;p&gt;Method invocation support provides the foundation for the upcoming &lt;code&gt;@ToolMapping&lt;/code&gt; annotation in M5:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;public static class LightControl {
-    private static final Logger logger = LoggerFactory.getLogger(LightControl.class);
-    private final Map&amp;#x3C;String, Object&gt; arguments = new HashMap&amp;#x3C;&gt;();
-
-    public void controlLight(String roomName, boolean on) {
-        arguments.put(&quot;roomName&quot;, roomName);
-        arguments.put(&quot;on&quot;, on);
-        logger.info(&quot;Setting light in room &apos;{}&apos; to: {}&quot;, roomName, on ? &quot;ON&quot; : &quot;OFF&quot;);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Usage:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;LightControl lightControl = new LightControl();
-
-String response = ChatClient.create(this.chatModel)
-    .prompt(&quot;Turn light on in the living room.&quot;)
-    .functions(
-        FunctionCallback.builder()
-            .description(&quot;Controls lights by room name, allowing them to be turned on or off.&quot;)
-            .method(&quot;controlLight&quot;, String.class, boolean.class)
-            .targetObject(lightControl)
-            .build()
-    )
-    .call()
-    .content();
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;For additional features, consult the &lt;a href=&quot;https://docs.spring.io/spring-ai/reference/api/function-callback.html&quot;&gt;FunctionCallback documentation&lt;/a&gt; which covers:&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Spring]]></title><description><![CDATA[Level up your Java code and explore what Spring can do for you.]]></description><link>https://spring.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 22 Nov 2024 01:50:27 GMT</lastBuildDate><item><title><![CDATA[A Bootiful Podcast: Heroku's Terence Lee]]></title><link>https://spring.io/blog/2024/11/21/a-bootiful-podcast-terence-lee</link><guid isPermaLink="true">https://spring.io/blog/2024/11/21/a-bootiful-podcast-terence-lee</guid><dc:creator><![CDATA[joshlong]]></dc:creator><pubDate>Thu, 21 Nov 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Hi, Spring fans! Happy Spring Boot 3.4.0 release day to those who celebrate! Today I&apos;m joined by both Terence Lee, from Heroku, and my friend DaShaun Carter, and we talk about platforms, buildpacks, and more. #heroku #paas #buildpacks,&lt;/p&gt;
+&lt;iframe title=&quot;Heroku¡¯s Terence Lee&quot; allowtransparency=&quot;true&quot; height=&quot;300&quot; width=&quot;100%&quot; style=&quot;border: none; min-width: min(100%, 430px);height:300px;&quot; scrolling=&quot;no&quot; data-name=&quot;pb-iframe-player&quot; src=&quot;https://www.podbean.com/player-v2/?from=embed&amp;i=wzxh7-174963a-pb&amp;square=1&amp;share=1&amp;download=1&amp;fonts=Arial&amp;skin=1&amp;font-color=&amp;rtl=0&amp;logo_link=&amp;btn-skin=7&amp;size=300&quot; loading=&quot;lazy&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;</content:encoded></item><item><title><![CDATA[Spring Boot 2.7.23, 3.0.18, and 3.1.14 available now]]></title><link>https://spring.io/blog/2024/11/21/spring-boot-2-7-23-3-0-18-and-3-1-14-available-now</link><guid isPermaLink="true">https://spring.io/blog/2024/11/21/spring-boot-2-7-23-3-0-18-and-3-1-14-available-now</guid><dc:creator><![CDATA[wilkinsona]]></dc:creator><pubDate>Thu, 21 Nov 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;On behalf of the team, I am pleased to announce that Spring Boot 2.7.23, 3.0.18, and 3.1.14 have been released for &lt;a href=&quot;https://www.vmware.com/products/app-platform/tanzu-spring&quot;&gt;support&lt;/a&gt; customers. The releases are available from &lt;a href=&quot;https://packages.broadcom.com&quot;&gt;https://packages.broadcom.com&lt;/a&gt;.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Schema type configuration (JSON Schema and OpenAPI Schema support)&lt;/li&gt;
-&lt;li&gt;Custom response handling and object mapping&lt;/li&gt;
-&lt;li&gt;Support for generic input types using &lt;code&gt;ParameterizedTypeReference&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Automatic schema generation from Java types, including Jackson annotation support&lt;/li&gt;
-&lt;li&gt;Guidelines for writing effective function descriptions and error handling&lt;/li&gt;
+&lt;li&gt;Spring Boot &lt;a href=&quot;https://enterprise.spring.io/projects/spring-boot/changelog/2.7.23&quot;&gt;2.7.23&lt;/a&gt; ships with 15 bug fixes, dependency upgrades, and documentation improvements.&lt;/li&gt;
+&lt;li&gt;Spring Boot &lt;a href=&quot;https://enterprise.spring.io/projects/spring-boot/changelog/3.0.18&quot;&gt;3.0.18&lt;/a&gt; ships with 28 bug fixes, dependency upgrades, and documentation improvements.&lt;/li&gt;
+&lt;li&gt;Spring Boot &lt;a href=&quot;https://enterprise.spring.io/projects/spring-boot/changelog/3.1.14&quot;&gt;3.1.14&lt;/a&gt; ships with 34 bug fixes, dependency upgrades, and documentation improvements.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;kotlin-support&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#kotlin-support&quot; aria-label=&quot;kotlin support permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Kotlin Support&lt;/h2&gt;
-&lt;p&gt;Spring AI introduces support for Kotlin, making it even easier for Kotlin developers to integrate AI capabilities into their applications. This release introduces idiomatic Kotlin extensions and type-safe APIs.  Many thanks to Sebastien Deleuze for taking on this work.&lt;/p&gt;
-&lt;h4 id=&quot;type-safe-response-handling&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#type-safe-response-handling&quot; aria-label=&quot;type safe response handling permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Type-Safe Response Handling&lt;/h4&gt;
-&lt;p&gt;The new Kotlin extensions enable more concise and type-safe ways to handle AI responses. Instead of using Java-style type declarations, you can now use Kotlin&apos;s reified generics:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;import org.springframework.ai.chat.client.entity
-
-data class Joke(val setup: String, val punchline: String)
-
-@SpringBootApplication
-class KotlinHelloWorldApplication {
-
-   @Bean
-   fun jokeRunner(chatModel: ChatModel) = CommandLineRunner {
-      val response = ChatClient.create(chatModel).prompt().user(&quot;Tell me a joke&quot;).call().entity&amp;#x3C;Joke&gt;()
-
-      println(&quot;\nJoke:&quot;)
-      println(&quot;Setup: ${response.setup}&quot;)
-      println(&quot;Punchline: ${response.punchline}&quot;)
-   }
-}
-
-fun main(args: Array&amp;#x3C;String&gt;) {
-   runApplication&amp;#x3C;KotlinHelloWorldApplication&gt;(*args)
-}
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&quot;function-registration&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#function-registration&quot; aria-label=&quot;function registration permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Function Registration&lt;/h4&gt;
-&lt;p&gt;Kotlin functions can now be directly registered as AI tools. The syntax is straightforward:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@Configuration
-class Config {
-
-   @Bean
-   fun weatherFunctionInfo(currentWeather: (WeatherRequest) -&gt; WeatherResponse): FunctionCallback {
-      return FunctionCallback.builder()
-         .description(
-            &quot;Find the weather conditions, forecasts, and temperatures for a location, like a city or state.&quot;
-         )
-         .function(&quot;WeatherInfo&quot;, currentWeather)
-         .inputType(WeatherRequest::class.java)
-         .build()
-   }
-
-   @Bean
-   @Description(&quot;Get current weather&quot;)
-   fun currentWeather(): (WeatherRequest) -&gt; WeatherResponse = { request -&gt;
-      MockKotlinWeatherService().invoke(request)
-   }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Then, it can be used as below.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@Bean
-open fun init(chatModel: ChatModel) = CommandLineRunner {
-
-   try {
-      val userMessage = UserMessage(
-         &quot;What are the weather conditions in San Francisco, Tokyo, and Paris? Find the temperature in Celsius for each of the three locations.&quot;
-      )
-
-      val response = chatModel.call(
-         Prompt(
-            listOf(userMessage),
-            OpenAiChatOptions.builder().withFunction(&quot;WeatherInfo&quot;).build()
-         )
-      )
-
-      println(&quot;Response: $response&quot;)
-   } 
-   catch (e: Exception) {
-      println(&quot;Error during weather check: ${e.message}&quot;)
-   }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The reference documentation has been updated to include Kotlin examples, and you can find other examples in the &lt;a href=&quot;https://github.com/spring-projects/spring-ai-examples&quot;&gt;spring-ai-examples&lt;/a&gt; repository.&lt;/p&gt;
-&lt;h2 id=&quot;additional-project-resources&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#additional-project-resources&quot; aria-label=&quot;additional project resources permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Additional Project Resources&lt;/h2&gt;
-&lt;p&gt;The repository &lt;a href=&quot;https://github.com/danvega/awesome-spring-ai&quot;&gt;awesome-spring-ai&lt;/a&gt; keeps the theme of other ¡°awseome¡± repositories and collects community related resources for Spring AI such as book, presentation, example code and so on.  Please make PRs to the repository for any useful material you a have found.&lt;/p&gt;
-&lt;p&gt;The repository &lt;a href=&quot;http://spring-ai-integration-tests&quot;&gt;spring-ai-integration-tests&lt;/a&gt; is now available and is making progress to run all the integration tests for the entire project twice daily.&lt;/p&gt;
-&lt;p&gt;The repository &lt;a href=&quot;https://github.com/spring-projects/spring-ai-examples&quot;&gt;spring-ai-examples&lt;/a&gt; is now available for hosting ¡°official¡± examples.  Check out the reflection agent example!&lt;/p&gt;
-&lt;p&gt;Also, as an introduction to the project, check out the blog post &lt;a href=&quot;https://spring.io/blog/2024/11/19/why-spring-ai&quot;&gt;Why Spring AI&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;advanced-and-modular-rag&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#advanced-and-modular-rag&quot; aria-label=&quot;advanced and modular rag permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Advanced and Modular RAG&lt;/h2&gt;
-&lt;p&gt;Spring AI introduces experimental support for advanced Retrieval Augmented Generation (RAG) based on recent research in modular RAG system design, in particular the papers &lt;a href=&quot;https://export.arxiv.org/abs/2407.21059&quot;&gt;Modular RAG: Transforming RAG Systems into LEGO-like Reconfigurable Frameworks&lt;/a&gt; and &lt;a href=&quot;https://arxiv.org/abs/2312.10997&quot;&gt;Retrieval-Augmented Generation for Large Language Models: A Survey&lt;/a&gt;.  A big thanks to Thomas Vittale for leading this effort.&lt;/p&gt;
-&lt;p&gt;Here are the key building blocks:&lt;/p&gt;
-&lt;p&gt;Pre-retrieval Components&lt;/p&gt;
+&lt;p&gt;The next 2.7.x, 3.0.x, and 3.1.x releases for support customers are planned for 3 months&apos; time.
+The first 3.2.x release for support customers is also planned for 3 months&apos; time.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Spring Boot 3.4.0 available now]]></title><link>https://spring.io/blog/2024/11/21/spring-boot-3-4-0-available-now</link><guid isPermaLink="true">https://spring.io/blog/2024/11/21/spring-boot-3-4-0-available-now</guid><dc:creator><![CDATA[wilkinsona]]></dc:creator><pubDate>Thu, 21 Nov 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;On behalf of the Spring Boot team and everyone that has contributed, I am pleased to announce that Spring Boot 3.4.0 has been released and is available from Maven Central.&lt;/p&gt;
+&lt;p&gt;This release adds a significant number of new features and improvements.
+For full &lt;a href=&quot;https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes#upgrading-from-spring-boot-33&quot;&gt;upgrade instructions&lt;/a&gt; and &lt;a href=&quot;https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes#new-and-noteworthy&quot;&gt;new and noteworthy&lt;/a&gt; features please see the &lt;a href=&quot;https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes&quot;&gt;release notes&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;whats-new-in-34&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#whats-new-in-34&quot; aria-label=&quot;whats new in 34 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What&apos;s new in 3.4&lt;/h2&gt;
+&lt;p&gt;The highlights of the 3.4 release include:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;QueryTransformer&lt;/code&gt;: Transforms queries to improve retrieval effectiveness (e.g., translation, rewrites)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;QueryExpander&lt;/code&gt;: Expands single queries into multiple variations for broader context capture&lt;/li&gt;
+&lt;li&gt;Structured logging&lt;/li&gt;
+&lt;li&gt;Support for defining additional beans of the same type as those that are auto-configured&lt;/li&gt;
+&lt;li&gt;Expanded virtual thread support&lt;/li&gt;
+&lt;li&gt;Improved support for Docker Compose and Testcontainers&lt;/li&gt;
+&lt;li&gt;Numerous Actuator enhancements, including info and health information for SSL certificates&lt;/li&gt;
+&lt;li&gt;Improved image building capabilities, including out-of-the-box support for ARM&lt;/li&gt;
+&lt;li&gt;Auto-configuration for &lt;code&gt;MockMvcTester&lt;/code&gt;, an AssertJ-based alternative to &lt;code&gt;MockMvc&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Orchestration Components&lt;/p&gt;
+&lt;h3 id=&quot;dependency-upgrades&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#dependency-upgrades&quot; aria-label=&quot;dependency upgrades permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Dependency upgrades&lt;/h3&gt;
+&lt;p&gt;Spring Boot 3.4 moves to new versions of several Spring projects and we¡¯ve also upgraded to the latest stable releases of other third-party libraries wherever possible. Please see the &lt;a href=&quot;https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes#dependency-upgrades&quot;&gt;release notes&lt;/a&gt; for details.&lt;/p&gt;
+&lt;h3 id=&quot;other-changes&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#other-changes&quot; aria-label=&quot;other changes permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Other changes&lt;/h3&gt;
+&lt;p&gt;There are many other changes and improvements that are documented in the &lt;a href=&quot;https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes&quot;&gt;release notes&lt;/a&gt;. You can also find a list of deprecated classes and methods that we plan to remove in the future.&lt;/p&gt;
+&lt;h2 id=&quot;thank-you&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#thank-you&quot; aria-label=&quot;thank you permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Thank you&lt;/h2&gt;
+&lt;p&gt;We want to take this opportunity to again thank all our users and contributors.&lt;/p&gt;
+&lt;p&gt;If you&apos;re interested in helping out, check out the &lt;a href=&quot;https://github.com/spring-projects/spring-boot/labels/status%3A%20ideal-for-contribution&quot;&gt;&quot;ideal for contribution&quot; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask at &lt;a href=&quot;http://stackoverflow.com&quot;&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href=&quot;http://stackoverflow.com/tags/spring-boot&quot;&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://spring.io/projects/spring-boot/&quot;&gt;Project Page&lt;/a&gt; | &lt;a href=&quot;https://github.com/spring-projects/spring-boot&quot;&gt;GitHub&lt;/a&gt; | &lt;a href=&quot;https://github.com/spring-projects/spring-boot/issues&quot;&gt;Issues&lt;/a&gt; | &lt;a href=&quot;https://docs.spring.io/spring-boot/3.3/&quot;&gt;Documentation&lt;/a&gt; | &lt;a href=&quot;http://stackoverflow.com/questions/tagged/spring-boot&quot;&gt;Stack Overflow&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Spring Cloud 2022.0.9 (aka Kilburn) Has Been Released]]></title><link>https://spring.io/blog/2024/11/21/spring-cloud-2022-0-9-aka-kilburn-has-been-released</link><guid isPermaLink="true">https://spring.io/blog/2024/11/21/spring-cloud-2022-0-9-aka-kilburn-has-been-released</guid><dc:creator><![CDATA[ryanjbaxter]]></dc:creator><pubDate>Thu, 21 Nov 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;On behalf of the Spring Cloud team, I am pleased to announce that the &lt;a href=&quot;https://enterprise.spring.io/projects/spring-cloud&quot;&gt;Spring Cloud 2022.0.9&lt;/a&gt; Release Train is available for &lt;a href=&quot;https://www.vmware.com/products/app-platform/tanzu-spring&quot;&gt;support customers&lt;/a&gt;. The release can be found in &lt;a href=&quot;https://packages.broadcom.com&quot;&gt;https://packages.broadcom.com&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;notable-changes-in-the-202209-release-train&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#notable-changes-in-the-202209-release-train&quot; aria-label=&quot;notable changes in the 202209 release train permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Notable Changes in the 2022.0.9 Release Train&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;QueryRouter&lt;/code&gt;: Routes queries to appropriate retrievers based on metadata or semantic analysis&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Retrieval Components&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;DocumentRetriever&lt;/code&gt;: Core interface for retrieving relevant documents&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;DocumentJoiner&lt;/code&gt;: Combines results from multiple retrievers/queries&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Post-retrieval Components&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;DocumentCompressor&lt;/code&gt;: Reduces document content while preserving key information&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;DocumentRanker&lt;/code&gt;: Reorders documents by relevance&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;DocumentSelector&lt;/code&gt;: Filters retrieved documents based on criteria&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Augmentation Components&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;QueryAugmenter&lt;/code&gt;: Enhances queries with retrieved context&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ContextualQueryAugmenter&lt;/code&gt;: Default implementation focused on document context integration&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Building on our modular RAG components, the &lt;code&gt;RetrievalAugmentationAdvisor&lt;/code&gt; provides an implementation to get you started and provides a linear RAG flow:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Query Creation: Creates Query from user text using PromptTemplate&lt;/li&gt;
-&lt;li&gt;Query Transformation: Applies QueryTransformers chain&lt;/li&gt;
-&lt;li&gt;Query Expansion: Creates multiple queries via QueryExpander&lt;/li&gt;
-&lt;li&gt;Document Retrieval: Routes and executes parallel retrievals&lt;/li&gt;
-&lt;li&gt;Document Integration: Joins results from all sources&lt;/li&gt;
-&lt;li&gt;Context Augmentation: Enhances query with retrieved context&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;You stitch together these collaborating building block components in a bean definition such as&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@Bean
-public RetrievalAugmentationAdvisor customRagAdvisor(VectorStore vectorStore) {
-    return RetrievalAugmentationAdvisor.builder()
-        .queryTransformers(List.of(new TranslationQueryTransformer(...)))
-        .queryExpander(new MultiQueryExpander(...))
-        .queryRouter(
-            AllRetrieversQueryRouter.builder()
-                .documentRetrievers(new VectorStoreDocumentRetriever(...))
-                .build()
-        )
-        .documentJoiner(new ConcatenationDocumentJoiner())
-        .queryAugmenter(new ContextualQueryAugmenter(...))
-        .build();
-}
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;While RetrievalAugmentationAdvisor implements a linear flow, users can implement custom &lt;code&gt;Advisor&lt;/code&gt;s for advanced patterns like conditional, branching, recursive, and adaptive flows.  More documentation is to come and we encourage you to send feedback on our github issue tracker.&lt;/p&gt;
-&lt;h2 id=&quot;other-improvements&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#other-improvements&quot; aria-label=&quot;other improvements permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Other improvements&lt;/h2&gt;
-&lt;p&gt;There were a few locations where Spring Boot being used in the model modules.
-This is no longer the case.  The only dependencies on Spring Boot are not isolated to the autoconfigure module.&lt;/p&gt;
-&lt;p&gt;Azure OpenAI SDK upgraded to version 12 beta.&lt;/p&gt;
-&lt;h3 id=&quot;documentation&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#documentation&quot; aria-label=&quot;documentation permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Documentation&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Added a comprehensive Chat Model comparison page&lt;/li&gt;
-&lt;li&gt;Restructured documentation navigation for better accessibility&lt;/li&gt;
-&lt;li&gt;Updated diagrams for chat model architecture&lt;/li&gt;
-&lt;li&gt;Added guide for programmatic configuration of Vertex embeddings with service accounts&lt;/li&gt;
-&lt;li&gt;Enhanced integration guides:&lt;/li&gt;
-&lt;li&gt;Ollama updates:
-&lt;ul&gt;
-&lt;li&gt;New auto-pull functionality&lt;/li&gt;
-&lt;li&gt;Llama32-Vision support&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Spring AI features:
-&lt;ul&gt;
-&lt;li&gt;Out-of-the-box support for Llama32-Vision&lt;/li&gt;
-&lt;li&gt;Portable multimodality API&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Vector database configuration:
-&lt;ul&gt;
-&lt;li&gt;Milvus&lt;/li&gt;
-&lt;li&gt;Chroma&lt;/li&gt;
-&lt;li&gt;OpenSearch&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Expanded configuration and setup documentation, focusing on:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Property overrides&lt;/li&gt;
-&lt;li&gt;Code examples&lt;/li&gt;
-&lt;li&gt;Integration patterns across different model types&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;vector-store--embedding-improvements&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#vector-store--embedding-improvements&quot; aria-label=&quot;vector store  embedding improvements permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Vector Store &amp;#x26; Embedding Improvements&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Added new vector store implementations for Oracle Coherence and Azure Cosmos&lt;/li&gt;
-&lt;li&gt;Enhanced existing vector stores:
-&lt;ul&gt;
-&lt;li&gt;Azure: Provided ability to match pre-existing field names and use of keyless authentication&lt;/li&gt;
-&lt;li&gt;Milvus: Added support for non-default databases&lt;/li&gt;
-&lt;li&gt;Chroma: Introduced builder pattern for better initialization&lt;/li&gt;
-&lt;li&gt;OpenSearch: Improved configuration structure&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Introduced builder pattern for TokenTextSplitter&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;contributors&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#contributors&quot; aria-label=&quot;contributors permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Contributors&lt;/h2&gt;
-&lt;p&gt;There were other refactoring, bug fixing, documentation enhancements across the board by a wide range of contributors. If we haven¡¯t gotten to your PR yet, we will, please be patient. Thanks to&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/aseovic&quot;&gt;Aleks Seovic (aseovic)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/apappascs&quot;&gt;Alexandros Pappas (apappascs)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/anders-swanson&quot;&gt;Anders Swanson (anders-swanson)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/bmoussaud&quot;&gt;Benoit Moussaud (bmoussaud)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/tzolov&quot;&gt;Christian Tzolov (tzolov)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/habuma&quot;&gt;Craig Walls (habuma)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/eddumelendez&quot;&gt;Edd? Mel?ndez (eddumelendez)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/emmanuel-ferdman&quot;&gt;Emmanuel Ferdman (emmanuel-ferdman)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/garethjevans&quot;&gt;Gareth Evans (garethjevans)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/1993heqiang&quot;&gt;He Qiang (1993heqiang)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ilayaperumalg&quot;&gt;Ilayaperumal Gopinathan (ilayaperumalg)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/JM-Lab&quot;&gt;Jemin Huh (JM-Lab)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jee14&quot;&gt;Jiseung Hyeon (jee14)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jitokim&quot;&gt;Jito Kim (jitokim)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jxblum&quot;&gt;John Blum (jxblum)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jsilverman26&quot;&gt;John Silverman (jsilverman26)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/joshlong&quot;&gt;Josh Long (joshlong)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/liugddx&quot;&gt;Liu Guodong (liugddx)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Waischbrot&quot;&gt;Lukas (Waischbrot)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/maxjiang153&quot;&gt;Max Jiang (maxjiang153)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/michael-simons&quot;&gt;Michael J. Simons (michael-simons)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/NerminKarapandzic&quot;&gt;Nermin Karapandzic (NerminKarapandzic)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/zzzadruga&quot;&gt;Nikolai Kulagin (zzzadruga)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/oganes.bozoyan&quot;&gt;Oganes Bozoyan (oganes.bozoyan)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ricken07&quot;&gt;Ricken Bazolo (ricken07)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/sdeleuze&quot;&gt;S?bastien Deleuze (sdeleuze)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/sobychacko&quot;&gt;Soby Chacko (sobychacko)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/cowboysj&quot;&gt;Sujin Kim (cowboysj)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/TheovanKraay&quot;&gt;Theo van Kraay (TheovanKraay)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ThomasVitale&quot;&gt;Thomas Vitale (ThomasVitale)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/timosalm&quot;&gt;Timo Salm (timosalm)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/making&quot;&gt;Toshiaki Maki (making)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/VictorZZZZ&quot;&gt;Victor Zalevski (VictorZZZZ)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/csuwl&quot;&gt;Wang Lei (csuwl)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/zhaojy01&quot;&gt;Zhao Jianying (zhaojy01)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/cycle2zhou&quot;&gt;Zhou Bo (cycle2zhou)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;roadmap&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#roadmap&quot; aria-label=&quot;roadmap permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Roadmap&lt;/h2&gt;
-&lt;p&gt;We are planning to have one more milestone release, 1.0.0 M5 targeted for late December that focuses on design issues, for example returning more information in the ChatResponse, overhaul the VectorStore API to add/delete and support different query types, unify the API styles of various builders, and more.   Then in January we will make a 1.0.0 RC1 release followed quickly by a 1.0.0 GA release.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Spring Integration 6.4 Goes GA and 6.3.6 & 6.2.11 Available]]></title><link>https://spring.io/blog/2024/11/20/spring-integration-6-4-goes-ga</link><guid isPermaLink="true">https://spring.io/blog/2024/11/20/spring-integration-6-4-goes-ga</guid><dc:creator><![CDATA[artembilan]]></dc:creator><pubDate>Wed, 20 Nov 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;On behalf of the team and everyone who contributed, I am pleased to announce the General Availability for Spring Integration &lt;code&gt;6.4.0&lt;/code&gt; generation.&lt;/p&gt;
-&lt;p&gt;In addition the regular bug fixes and dependency upgrades were release as Spring Integration &lt;code&gt;6.3.6&lt;/code&gt; and &lt;code&gt;6.2.11&lt;/code&gt;.
-The &lt;code&gt;6.2.11&lt;/code&gt; is the last Open Source release.
-From now on updates to &lt;code&gt;6.2.x&lt;/code&gt; generation are going to be available via Commercial Support only.&lt;/p&gt;
-&lt;p&gt;Along side with bug fixes, dependency upgrades and internal improvements, here are some notable new feature in version &lt;code&gt;6.4&lt;/code&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;The new Control Bus interaction model is implemented in the &lt;code&gt;ControlBusCommandRegistry&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;A new &lt;code&gt;ControlBusFactoryBean&lt;/code&gt; class is recommended to be used instead of deprecated &lt;code&gt;ExpressionControlBusFactoryBean&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Also, a &lt;code&gt;ControlBusController&lt;/code&gt; (together with an &lt;code&gt;@EnableControlBusController&lt;/code&gt;) is introduced for managing exposed commands by the mentioned &lt;code&gt;ControlBusCommandRegistry&lt;/code&gt;;&lt;/li&gt;
-&lt;li&gt;The SpEL evaluation infrastructure now supports configuration for &lt;code&gt;IndexAccessor&lt;/code&gt;;&lt;/li&gt;
-&lt;li&gt;The outbound component &lt;code&gt;ZeroMqMessageHandler&lt;/code&gt; (and respective API) can now bind a TCP port instead of connecting to a given URL.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Essentially, making it working as a server for the port folling regular ZeroMQ patterns;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;The &lt;code&gt;DefaultSftpSessionFactory&lt;/code&gt; now exposes a &lt;code&gt;Consumer&amp;#x3C;SshClient&gt;&lt;/code&gt; configurer property to further customize an internal &lt;code&gt;SshClient&lt;/code&gt;;&lt;/li&gt;
-&lt;li&gt;The Python scripting support has been migrate to GraalVM Polyglot.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Now Python 3 language version can be used in your scripts.
-Plus all the benefits from third-party Python libraries;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;The &lt;code&gt;RedisLockRegistry&lt;/code&gt; can now be configured with a &lt;code&gt;TaskScheduler&lt;/code&gt; for automatic locks renewal in the store;&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;SourcePollingChannelAdapterSpec&lt;/code&gt; now can be configured with a custom &lt;code&gt;TaskScheduler&lt;/code&gt;, e.g. for some &lt;code&gt;TaskDecorator&lt;/code&gt; use-case;&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;@SpringIntegrationTest&lt;/code&gt; can now be used for test classes hierarchy, including &lt;code&gt;@Nested&lt;/code&gt; configuration;&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;ZipTransformer&lt;/code&gt; now exposes a &lt;code&gt;fileNameGenerator&lt;/code&gt; property to customize a target zip file (and optional zip entry) name generation;&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;BaseMessageBuilder&lt;/code&gt; has been extracted for easier custom &lt;code&gt;MessageBuilderFactory&lt;/code&gt; implementation, e.g. when we would like to mask some sensitive information from message headers whenever the message is logged.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;See &lt;a href=&quot;https://docs.spring.io/spring-integration/reference/6.4/whats-new.html&quot;&gt;What&apos;s New in 6.4&lt;/a&gt; for more details.&lt;/p&gt;
-&lt;p&gt;Also a &lt;a href=&quot;https://github.com/spring-projects/spring-integration/wiki/Spring-Integration-6.3-to-6.4-Migration-Guide&quot;&gt;Migration Guide&lt;/a&gt; contains some breaking changes in this new version.&lt;/p&gt;
-&lt;p&gt;We are looking for any feedback on &lt;code&gt;6.4&lt;/code&gt; to further improve the Framework and your experience for the next &lt;code&gt;6.5&lt;/code&gt; generation planned in May 2025.&lt;/p&gt;
-&lt;p&gt;Cheers,?&lt;br&gt;
-Artem&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://projects.spring.io/spring-integration/&quot;&gt;Project Page&lt;/a&gt; | &lt;a href=&quot;https://github.com/spring-projects/spring-integration/issues&quot;&gt;GitHub Issues&lt;/a&gt; | &lt;a href=&quot;https://github.com/spring-projects/spring-integration/blob/main/CONTRIBUTING.adoc&quot;&gt;Contributing&lt;/a&gt; | &lt;a href=&quot;http://stackoverflow.com/questions/tagged/spring-integration&quot;&gt;Help&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Spring Authorization Server 1.4 goes GA]]></title><link>https://spring.io/blog/2024/11/19/spring-authorization-server-1-4-goes-ga</link><guid isPermaLink="true">https://spring.io/blog/2024/11/19/spring-authorization-server-1-4-goes-ga</guid><dc:creator><![CDATA[jgrandja]]></dc:creator><pubDate>Tue, 19 Nov 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;On behalf of the team and everyone who has contributed, it is my pleasure to announce the release of Spring Authorization Server 1.4.&lt;/p&gt;
-&lt;p&gt;The 1.4 release contains a few noteworthy new features:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Simplified configuring authorization server using &lt;code&gt;HttpSecurity.with()&lt;/code&gt; &lt;a href=&quot;https://github.com/spring-projects/spring-authorization-server/pull/1725&quot;&gt;(gh-1725)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Support for OpenID Connect 1.0 &lt;code&gt;prompt=none&lt;/code&gt; parameter &lt;a href=&quot;https://github.com/spring-projects/spring-authorization-server/issues/501&quot;&gt;(gh-501)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Ability to customize validation of OpenID Connect 1.0 RP-Initiated Logout Requests &lt;a href=&quot;https://github.com/spring-projects/spring-authorization-server/pull/1723&quot;&gt;(gh-1723)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Ability to customize success handling of OpenID Connect 1.0 RP-Initiated Logout Requests &lt;a href=&quot;https://github.com/spring-projects/spring-authorization-server/issues/1244&quot;&gt;(gh-1244)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Added &lt;a href=&quot;https://docs.spring.io/spring-authorization-server/reference/guides/how-to-redis.html&quot;&gt;How-to guide&lt;/a&gt; demonstrating how to implement the core services with Redis&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;To get started using Spring Authorization Server, see the &lt;a href=&quot;https://docs.spring.io/spring-authorization-server/reference/getting-started.html&quot;&gt;Getting Started&lt;/a&gt; chapter of the reference documentation and the &lt;a href=&quot;https://github.com/spring-projects/spring-authorization-server/tree/main/samples&quot;&gt;samples&lt;/a&gt; to become familiar with setup and configuration.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://spring.io/projects/spring-authorization-server&quot;&gt;Project Page&lt;/a&gt; | &lt;a href=&quot;https://github.com/spring-projects/spring-authorization-server/issues&quot;&gt;GitHub Issues&lt;/a&gt; | &lt;a href=&quot;https://github.com/orgs/spring-projects/projects/8/views/21&quot;&gt;Project Board&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Spring for Apache Kafka 3.3.0, 3.2.5 and 3.1.10 Available Now]]></title><link>https://spring.io/blog/2024/11/19/spring-for-apache-kafka-3-3-0-3-2-5-and-3-1-10-available-now</link><guid isPermaLink="true">https://spring.io/blog/2024/11/19/spring-for-apache-kafka-3-3-0-3-2-5-and-3-1-10-available-now</guid><dc:creator><![CDATA[sobychacko]]></dc:creator><pubDate>Tue, 19 Nov 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;On behalf of everyone who contributed, we are pleased to announce the general availability of Spring for Apache Kafka &lt;code&gt;3.3.0&lt;/code&gt;. This is the first release that is generally available in the &lt;code&gt;3.3.x&lt;/code&gt; generation. In additions, the patch GA releases for &lt;code&gt;3.2.5&lt;/code&gt; and &lt;code&gt;3.1.10&lt;/code&gt; are also available now. We thank everyone who contributed to these releases.&lt;/p&gt;
-&lt;p&gt;Please note that the &lt;code&gt;3.1.10&lt;/code&gt; release is the last OSS release in the &lt;code&gt;3.1.x&lt;/code&gt; generation. Please see the &lt;a href=&quot;https://spring.io/projects/spring-kafka#support&quot;&gt;support timeline&lt;/a&gt; for more details.&lt;/p&gt;
-&lt;h4 id=&quot;release-notes&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#release-notes&quot; aria-label=&quot;release notes permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Release Notes&lt;/h4&gt;
-&lt;p&gt;See the release notes for more details on what&apos;s included in these releases:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/spring-projects/spring-kafka/releases/tag/v3.3.0&quot;&gt;https://github.com/spring-projects/spring-kafka/releases/tag/v3.3.0&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/spring-projects/spring-kafka/releases/tag/v3.2.5&quot;&gt;https://github.com/spring-projects/spring-kafka/releases/tag/v3.2.5&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/spring-projects/spring-kafka/releases/tag/v3.1.10&quot;&gt;https://github.com/spring-projects/spring-kafka/releases/tag/v3.1.10&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;spring-boot-integration&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#spring-boot-integration&quot; aria-label=&quot;spring boot integration permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Spring Boot Integration&lt;/h4&gt;
-&lt;p&gt;The &lt;code&gt;3.3.0&lt;/code&gt; release will be integrated with upcoming Spring Boot &lt;code&gt;3.4.0&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;The patch releases &lt;code&gt;3.2.5&lt;/code&gt; and &lt;code&gt;3.1.10&lt;/code&gt; will be included in the upcoming Spring Boot &lt;code&gt;3.2.12&lt;/code&gt; and &lt;code&gt;3.3.6&lt;/code&gt; releases respectively.&lt;/p&gt;
-&lt;h4 id=&quot;staying-in-touch-with-the-project&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#staying-in-touch-with-the-project&quot; aria-label=&quot;staying in touch with the project permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Staying in touch with the project&lt;/h4&gt;
-&lt;p&gt;Following are the usual avenues where you can engage with the project.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/spring-projects/spring-kafka&quot;&gt;GitHub&lt;/a&gt; | &lt;a href=&quot;https://github.com/spring-projects/spring-kafka/issues&quot;&gt;Issues&lt;/a&gt; | &lt;a href=&quot;https://docs.spring.io/spring-kafka/reference&quot;&gt;Documentation&lt;/a&gt; | &lt;a href=&quot;https://stackoverflow.com/tags/spring-kafka&quot;&gt;Stack Overflow&lt;/a&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;li&gt;This release is compatible with Spring Boot 3.0.18 and 3.1.14.&lt;/li&gt;
+&lt;li&gt;Spring Cloud Contract 4.0.9 has dependency upgrades.&lt;/li&gt;
+&lt;li&gt;Spring Cloud Netflix 4.0.7 has dependency upgrades.&lt;/li&gt;
+&lt;li&gt;Spring Cloud OpenFeign 4.0.8 has dependency upgrades.&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>
