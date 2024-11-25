@@ -1,0 +1,60 @@
+[수업내용정리]
+
+[ 격리레벨(격리성, 격리수준) ]
+트랜잭션 처리 과정에서
+두 개 이상의 트랜잭션이 서로 동시에 같은 자원을
+접근할 때의 어떻게 각가의 트랜잭션을 처리해야 하는가 ? 에 대한 문제점
+
+같은 자원 == 공유 자원
+예) 화장실
+	트랜잭션
+	A 			[화장실]
+	B
+	한명이 끝나고 쓴다. : 동기화 처리 (줄 세운다.)
+
+[실습]
+	NoticeDao 인터페이스
+		ㄴ hitUp() 조회수 증가
+		ㄴ getHit() 조회수를 얻어오는 메서드
+		public void hitUp(String seq) throws ClassNotFoundException, SQLException ;   
+   		public int getHit(String seq) throws ClassNotFoundException, SQLException ;
+   		
+[ 용어 이해 ]
+512p
+1) Dirty Read 상황
+	@T(트랜잭션) [hitUp()] 조회수 증가
+	[	seq = 16				현재 조회수 : 10			~					다른처리						]
+																11(증가)								커밋/[롤백] 10
+																			@T[getHit()]
+																			seq 11
+
+2) Non-repeatable Read 상황
+			반복			읽기
+		조건) 반드시 반복적(2번 이상) 읽기
+		@T getHit()										@T getHit()
+		seq = 16 / 조회수 : 10						seq = 16 / 11
+										@T hitUp()
+										seq = 16 / 11
+
+3) Phantom Read 상황
+	조건) 여러 개의 레코드를 한 번에 읽어오는 작업을 반복한다.
+	select *
+	from emp
+	where deptno = 30; -- 사원 6명
+	레코드 [emp]
+			 [emp]
+			 [emp]
+			 [emp]
+			 [emp]
+			 [emp]
+			 
+	@T delete emp 30번 부서 1명을 삭제하는 일을 함
+	
+	select *
+	from emp
+	where deptno = 30; -- 사원 5명
+	레코드 [emp]
+			 [emp]
+			 [emp]
+			 [emp]
+			 [emp]

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC 
+   "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+   "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+   
+<tiles-definitions>
+	<definition name="base"  template="/WEB-INF/views/layout/template.jsp">
+    	<put-attribute name="header" value="/WEB-INF/views/layout/header.jsp" />
+    	<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+    </definition>
+    
+    <!-- home.tiles -->
+    <definition name="home.tiles"  template="base">
+    	<put-attribute name="article" value="/WEB-INF/views/home.jsp" />
+    </definition>
+    
+    						<!-- 별 사탕 순서 {1} {2} -->
+    <definition name="*/*.tiles"  template="/WEB-INF/views/{1}/layout/template.jsp">
+    	<put-attribute name="header" value="/WEB-INF/views/layout/header.jsp" />
+    	<put-attribute name="nav" value="/WEB-INF/views{1}/layout/nav.jsp" />
+    	<put-attribute name="article" value="/WEB-INF/views/{1}/{2}.jsp" />
+    	<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+    </definition>
+
+	<!-- [2]
+	<definition name="city/*.tiles"  template="/WEB-INF/views/city/layout/template.jsp">
+    	<put-attribute name="header" value="/WEB-INF/views/layout/header.jsp" />
+    	<put-attribute name="nav" value="/WEB-INF/views/city/layout/nav.jsp" />
+    	<put-attribute name="article" value="/WEB-INF/views/city/{1}.jsp" />
+    	<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+    </definition>
+     -->
+</tiles-definitions>
+	
+	<!-- [1] -->
+    <!-- city/london.tiles -->
+    							<!-- 컨트롤러에서 준 원하던 이름 --> 		<!-- 있는 경로 -->
+    <!-- 
+    <definition name="city/london.tiles"  template="/WEB-INF/views/city/layout/template.jsp">
+    							원하는 이름 			경로
+    	<put-attribute name="header" value="/WEB-INF/views/layout/header.jsp" />
+    	<put-attribute name="nav" value="/WEB-INF/views/city/layout/nav.jsp" />
+    	<put-attribute name="article" value="/WEB-INF/views/city/london.jsp" />
+    	<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+    </definition>
+     -->
+    <!-- city/paris.tiles -->
+    <!-- 
+    <definition name="city/paris.tiles"  template="/WEB-INF/views/city/layout/template.jsp">
+    							원하는 이름 			경로
+    	<put-attribute name="header" value="/WEB-INF/views/layout/header.jsp" />
+    	<put-attribute name="nav" value="/WEB-INF/views/city/layout/nav.jsp" />
+    	<put-attribute name="article" value="/WEB-INF/views/city/paris.jsp" />
+    	<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+    </definition>
+     -->
+    <!-- city/seoul.tiles -->
+    <!-- 
+    <definition name="city/seoul.tiles"  template="/WEB-INF/views/city/layout/template.jsp">
+    							원하는 이름 			경로
+    	<put-attribute name="header" value="/WEB-INF/views/layout/header.jsp" />
+    	<put-attribute name="nav" value="/WEB-INF/views/city/layout/nav.jsp" />
+    	<put-attribute name="article" value="/WEB-INF/views/city/seoul.jsp" />
+    	<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+    </definition>
+     -->
+
+
+
+
+
+
