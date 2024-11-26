@@ -1,0 +1,33 @@
+[수업내용정리]
+Spring Security (11/26 화) p652
+1. SL12_SECURITY
+A. 시큐리티가 필요한 URL 설계
+   ㄱ. 게시판 글 쓰기 - 인증(로그인) O
+       작성자 == 로그인한 계정(ID)
+   ㄴ. 게시판 수정/삭제 - 작성자 확인, 관리자 권한 삭제는 가능
+   ㄷ. 그 외의 요청들은 인증받지않아도 모든 사용자가 사용 가능.
+
+B. (암기)	시큐리티 내부 구조(개요)
+
+(1)  AuthenticationManager(인증관리자) - 가장 중요한 역할
+                                         인증을 담당하는 존재
+                                         인터페이스
+                                         인증을 다양한 방식으로 인증 처리를 할 수 있도록 설계됨
+                                         (책임자)
+(2)  ProviderManager(제공관리자) - 인증 처리를 AuthenticationProvider 객체를 이용해서
+인증처리를 [위임]하는 역할. 인터페이스
+(3)  AuthenticationProvider(인증제공자) - 실제 인증 처리를 하는 역할(실무자 / 담당자)
+*** (4)  UserDetailsService(사용자상세서비스) - 인증된 실제 사용자의 정보+권한 정보를
+																	처리해서 반환하는 객체. 인터페이스
+   
+   (3) + (4) 직접 구현할 수 있다.
+
+로그인 성공
+
+2. SL12_SECURITY2_JDBC
+p683
+
+
+*** 3. SL12_SECURITY3_USERDETAILSSERVICE
+	인증받은 사용자 정보 : username + 권한 + 저장하고 정보
+	AuthVO

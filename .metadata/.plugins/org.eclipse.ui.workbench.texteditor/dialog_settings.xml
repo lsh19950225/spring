@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Reg"/>
+		<item key="selection" value=".htm"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value=".jsp"/>
+			<item value="this.noticeDao.insert"/>
+			<item value="content"/>
+			<item value="tiles"/>
+			<item value="noticedetail"/>
 			<item value="reg"/>
 			<item value="lsh"/>
 			<item value="공지사항"/>
@@ -16,12 +21,8 @@
 			<item value="공지사항등록"/>
 			<item value="수정"/>
 			<item value="제목"/>
-			<item value=".jsp"/>
 			<item value="글쓰기"/>
 			<item value="spring-aop"/>
-			<item value="modify"/>
-			<item value="viewre"/>
-			<item value="mybatis"/>
 		</list>
 		<list key="replacehistory">
 			<item value=".htm"/>

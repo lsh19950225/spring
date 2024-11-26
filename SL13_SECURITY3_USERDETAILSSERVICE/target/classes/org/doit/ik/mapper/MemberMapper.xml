@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!-- 맵핑하는 파일 / 맵퍼파일 -->
+  <mapper namespace="org.doit.ik.mapper.MemberMapper">
+  	<!-- public MemberVO getMember(String id) throws ClassNotFoundException, SQLException; -->
+  	<select id="getMember" resultType="org.doit.ik.domain.MemberVO">
+  			  SELECT *
+              FROM MEMBER
+              WHERE id = #{id}
+  	</select>
+	<!-- public int insert(MemberVO member) throws ClassNotFoundException, SQLException; -->
+	<insert id="insert">
+			INSERT INTO MEMBER
+            ( id, pwd, name, gender, birth, is_lunar, cphone, email, habit, regdate)
+            VALUES
+            ( #{id}, #{pwd}, #{name}, #{gender}, #{birth}, #{is_lunar}, #{cphone}, #{email}, #{habit}, SYSDATE)
+	</insert>
+	
+	<!-- public MemberVO read(@Param("userid") String userid) throws ClassNotFoundException, SQLException; -->
+	<resultMap type="org.doit.ik.domain.MemberVO" id="memberMap">
+      <id property="id" column="id" />
+      <result property="pwd" column="pwd" />
+      <result property="name" column="name" />
+      <result property="regdate" column="regdate" />
+      <collection property="authList" resultMap="authMap"></collection>
+    </resultMap>
+    <resultMap type="org.doit.ik.domain.AuthVO" id="authMap">
+      <result property="username" column="username" />
+      <result property="authority" column="authority" />  
+    </resultMap>
+	<select id="read" resultMap="memberMap">
+      SELECT id, pwd, name, 1 as enabled, regdate, authority
+       FROM  member  m LEFT JOIN member_authorities auth ON m.id = auth.username
+       WHERE m.id = #{ userid }
+    </select>
+	
+  </mapper>
