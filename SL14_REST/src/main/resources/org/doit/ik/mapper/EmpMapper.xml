@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.doit.ik.mapper.EmpMapper">
+
+     <!-- List<EmpDTO> selectAll(); -->
+     <select id="selectAll" resultType="org.doit.ik.domain.EmpVO">
+       SELECT *
+       FROM emp
+       ORDER BY deptno ASC, empno ASC
+     </select>
+     
+     <!-- EmpDTO selectByEmpno(int empno); -->
+     <select id="selectByEmpno" resultType="org.doit.ik.domain.EmpVO">
+       SELECT *
+       FROM emp
+       WHERE empno = #{empno}
+     </select>
+     
+      <!-- int idCheck(String empno); -->
+     <select id="idCheck" resultType="Integer">
+        SELECT COUNT(*)
+        FROM emp
+        WHERE empno = #{ empno }
+     </select>
+
+</mapper> 

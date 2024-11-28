@@ -563,3 +563,19 @@
 11월 26, 2024 14:42:00.995     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
 11월 26, 2024 14:42:00.995     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
 11월 26, 2024 14:42:23.943 [16008:15960:1126/144223.942:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
+
+11월 28, 2024 09:08:45.951 NEW SESSION
+11월 28, 2024 09:08:45.952 [2368:7288:1128/090845.950:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 28, 2024 09:08:46.114 [2368:3500:1128/090846.113:ERROR:CONSOLE(1)] "Unknown VE context: language-mismatch    at new He (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:98934)
+11월 28, 2024 09:08:46.114     at devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:194918
+11월 28, 2024 09:08:46.114     at new ci (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195314)
+11월 28, 2024 09:08:46.114     at ci.instance (devtools://devtools/bundled/devtools-frontend/front_end/ui/legacy/legacy.js:1:195436)
+11월 28, 2024 09:08:46.114     at O.presentUI (devtools://devtools/bundled/devtools-frontend/front_end/panels/emulation/emulation.js:1:58454)
+11월 28, 2024 09:08:46.115     at #I (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17402)
+11월 28, 2024 09:08:46.115     at #v (devtools://devtools/bundled/devtools-frontend/front_end/entrypoints/main/main.js:1:17197)", source: devtools://devtools/bundled/devtools-frontend/front_end/ui/visual_logging/visual_logging.js (1)
+11월 28, 2024 09:08:46.351 Created TensorFlow Lite XNNPACK delegate for CPU.
+11월 28, 2024 09:09:10.155 [2368:7288:1128/090910.155:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 28, 2024 09:09:59.155 [2368:7288:1128/090959.154:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 28, 2024 09:11:47.635 [2368:7288:1128/091147.634:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 28, 2024 09:15:15.808 [2368:7288:1128/091515.808:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+11월 28, 2024 09:21:28.657 [2368:7288:1128/092128.656:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT

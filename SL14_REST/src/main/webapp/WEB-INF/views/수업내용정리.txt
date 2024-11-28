@@ -1,0 +1,31 @@
+[수업내용정리]
+
+1. REST(Representational State Transfer)
+2. URI(URL) + GET/POST/DELETE/PUT
+	하나의 리소스를 요청 + 전송방식
+	예) http://localhost/members/new + POST 회원등록 요청
+	예) http://localhost/members/{id} + GET id 회원정보 얻어오기
+	예) http://localhost/members/{id} + DELETE id 회원정보 삭제
+	예) http://localhost/members/{id} + PUT id 회원정보 수정
+
+3. 어노테이션
+	1) @PathVariable
+	2) @RestController = @Controller + @ResponseBody : XML, JSON 를 보낸다.
+	3) @ResponseBody
+	4) @RequestBody 클라이언트 -> 클래스 객체 변환
+								JSON			NoticeVO
+	5) @CrossOrigin
+
+4. pom.xml 의존 모듈 추가
+	  <dependency>
+         <groupId>com.fasterxml.jackson.core</groupId>
+         <artifactId>jackson-databind</artifactId>
+         <version>2.9.5</version>
+      </dependency>
+
+
+      <dependency>
+         <groupId>com.fasterxml.jackson.dataformat</groupId>
+         <artifactId>jackson-dataformat-xml</artifactId>
+         <version>2.9.5</version>
+      </dependency>
